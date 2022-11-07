@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/globalStyles.css" />
+    <link rel="stylesheet" href="./user.css" />
+    <link rel="stylesheet" href="../css/modal.css">
+    <title>UserPage</title>
+    <script defer type="module" src="./user.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="container">
+        <div class="user-section">
+          <img class="user-img" src="" alt="" />
+        </div>
+        <div class="user-infos">
+          <h2>Dados Pessoais</h2>
+          <div class="p-container">
+            <p>Nome: <span class="user-name"></span></p>
+            <p>E-mail: <span class="user-email"></span></p>
+            <!-- <p>Data de nascimento: <span class="user-birthday"></span></p> -->
+          </div>
+          <div class="btm-container">
+            <button id="update-account">Atualizar informações</button>
+            <button id="delete-account">Deletar conta</button>
+          </div>
+        </div>
+      </section>
+      <section class="container pet-section">
+        <button class="register-pet">Cadastrar novo pet</button>
+        <ul class="my-pets-ul"></ul>
+      </section>
+    </main>
+    <footer class="container">
+      <h5>KenziePets | Todos os Direitos Reservados</h5>
+    </footer>
+  </body>
+</html>
