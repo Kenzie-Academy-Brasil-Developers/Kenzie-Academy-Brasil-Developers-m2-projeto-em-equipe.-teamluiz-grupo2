@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" href="./src/css/globalStyles.css">
+    <link rel="stylesheet" href="./src/css/header.css">
     
     <title>Kenzie Pets</title>
   </head>
   
   <body>
 
-    <header>
-      <h1>Kenzie Pets</h1>
+    <header class="header">
+      <h1>KenziePets</h1>
       <div>
-        <button class="register-button">Cadastro</button>
-        <button class="login-button">Login</button>
+        <button id="registerButton">Cadastro</button>
+        <button id="loginButton" class="emphasis-button">Login</button>
       </div>
     </header>
 
     <main>
-      <div>
+      <div class="container">
         <select>
           <option value="null">Espécie</option>
         </select>
         <button>Buscar</button>
       </div>
 
-      <ul>
+      <ul class="container">
         <li>
           <img src="./src/img/Avatar animal.svg" alt="Foto do Pet">
           <div>
