@@ -94,6 +94,7 @@ section {
   align-items: center;
   flex-wrap: wrap;
   gap: 64px;
+  margin-bottom: 16px;
 }
 .my-pets-ul > li {
   width: 100%;
