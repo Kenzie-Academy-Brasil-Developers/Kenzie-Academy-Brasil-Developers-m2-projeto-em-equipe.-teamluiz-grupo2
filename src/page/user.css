@@ -1,0 +1,132 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-section {
+  width: 100%;
+  max-width: 1200px;
+  height: 223px;
+  background-color: var(--brand1);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.user-section img {
+  width: 220px;
+  height: 220px;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  transform: translateY(103px);
+}
+.user-infos {
+  margin-top: 158px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.user-infos h2 {
+  font-size: var(--size2);
+  color: var(--brand1);
+  font-weight: var(--weight7);
+}
+.p-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 35px;
+  color: var(--brand1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+.p-container > p > span {
+  color: var(--grey1);
+}
+.btm-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 31px;
+}
+#update-account {
+  color: var(--white);
+  background-color: var(--brand2);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+}
+#delete-account {
+  color: var(--alert);
+  background-color: var(--white);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border: 1px solid var(--alert);
+  border-radius: 16px;
+}
+.pet-section {
+  align-items: flex-start;
+}
+.register-pet {
+  margin-top: 96px;
+  margin-bottom: 42px;
+  color: var(--white);
+  background-color: var(--green);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+}
+
+.my-pets-ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+.my-pets-ul > li {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.my-pets-ul > li > img {
+  width: 100%;
+  height: 100%;
+  max-width: 211px;
+  max-height: 281px;
+}
+.my-pets-ul p {
+  color: var(--brand1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+.my-pets-ul span {
+  color: var(--grey1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+
+.update-pet-btm {
+  color: var(--white);
+  background-color: var(--brand2);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+  margin-top: 16px;
+}
