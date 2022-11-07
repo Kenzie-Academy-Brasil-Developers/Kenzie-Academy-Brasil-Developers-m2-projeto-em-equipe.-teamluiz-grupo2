@@ -130,6 +130,7 @@ export {modalLogin,modalRegister}
     </dialog> -->
 */
 
+
 function modalBase(titulo='',main='',footer=''){
     let body=document.querySelector('body')
     //criação dos elementos
