@@ -1,0 +1,71 @@
+.modal::backdrop{
+    background-color: rgba(27, 28, 30, 0.65);
+}
+.modal{
+    border: none;
+    margin: auto;
+    border-radius: var(--radius1);
+}
+.modal-container{
+    width: 520px;
+    height: 380px;
+    border-radius: var(--radius1);
+    display: flex;
+    flex-direction: column;
+    border-top: 40px solid var(--brand1);
+    border-bottom: 15px solid var(--brand1);
+    position: relative;
+}
+
+.close-modal{
+    background-image: url(/src/img/Vector.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: var(--size2);
+    height: var(--size2);
+    background-color: transparent;
+    padding: 20px;
+    position: absolute;
+    top: -39px;
+    right: 0;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap: 12px;
+}
+.modal-body h2 {
+    margin-top: 30px;
+    margin-bottom: 22px;
+    font-size: var(--size2);
+    color: var(--brand1);
+    font-weight: var(--weight7);
+}
+.modal-body input{
+    width: 240px;
+    height: 27px;
+    border-radius: var(--radius1);
+    border: 1px solid var(--brand1);
+    color: var(--brand1);
+    padding-left: 10px;
+}
+.btn-login{
+    width: 240px;
+    height: 27px;
+    border-radius: var(--radius1);
+    background-color: var(--brand1);
+    color: var(--white);
+
+}
+.modal-body p {
+    font-size: 8px;
+    line-height: 11px;
+    font-weight: var(--weight4);
+    color: var(--grey1);
+}
+.modal-body p a {
+    text-decoration: none;
+    color: var(--brand1);
+}
