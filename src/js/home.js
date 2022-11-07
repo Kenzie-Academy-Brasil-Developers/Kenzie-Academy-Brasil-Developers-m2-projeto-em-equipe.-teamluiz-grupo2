@@ -1,6 +1,6 @@
 import { modalLogin,modalRegister } from "./modal.js"
 const openLogin = () => {
-    const login = document.getElementById("loginButton")
+    const login = document.querySelector("#loginButton")
     const body = document.querySelector("body")
     login.addEventListener("click", ()=> {
         const modal = modalLogin()
@@ -13,7 +13,7 @@ const openLogin = () => {
 }
 openLogin()
 const openRegister = () => {
-    const register = document.getElementById("registerButton")
+    const register = document.querySelector("#registerButton")
     const body = document.querySelector("body")
     register.addEventListener("click", ()=> {
         const modal = modalRegister()
