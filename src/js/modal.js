@@ -47,6 +47,9 @@ const modalLogin = () => {
         })
         await login(body)
     })
+    buttonClose.addEventListener("click", ()=> {
+        modal.close()
+    })
 
     return modal
     
@@ -110,6 +113,10 @@ const modalRegister = () => {
         })
         await register(body)
     })
+    buttonClose.addEventListener("click", ()=> {
+        modal.close()
+    })
+
 
     return modal
 }
