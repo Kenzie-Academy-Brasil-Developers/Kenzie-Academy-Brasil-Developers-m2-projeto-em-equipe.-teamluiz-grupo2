@@ -10,6 +10,7 @@ dialog{
     border: none;
     margin: auto;
     border-radius: var(--radius1);
+
 }
 .modal-container{
     width: 520px;
@@ -73,4 +74,102 @@ dialog{
 .modal-body p a {
     text-decoration: none;
     color: var(--brand1);
+}
+
+/* Matheus modal */
+
+#modal{
+    background-color: rgba(27, 28, 30, 0.65);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#modal .body{
+    background-color: var(--white);
+    border-radius: 15px;
+    max-height: 50%;
+    max-width: 80%;
+}
+
+
+#modal .header{
+    padding: 10px  var(--radius1);
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    border-top-left-radius: var(--radius1);
+    border-top-right-radius: var(--radius1);
+    justify-content: space-between;
+    background-color: var(--brand1);
+}
+
+#modal .header div{
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    border-radius: var(--radius3);
+    border: 1px solid;
+}
+
+#modal .main{
+    padding: 15px;
+}
+
+#modal .main form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--radius1);
+    align-items: center;
+    justify-content: center;
+}
+
+#modal .main h2{
+    color: var(--brand1);
+    font-size: var(--size1);
+}
+
+#modal .main form input{
+    display: flex;
+    border-radius:15px ;
+    gap:15px;
+    padding: 0px 15px;
+    border:2px solid;
+    border-color: var(--brand1);
+}
+
+#modal .main form input::selection{
+    border-color: red;
+    border: 2px solid;
+}
+
+#modal button[type='submit']{
+    color: var(--white);
+    background-color: var(--brand1);
+    border: 2px solid;
+    border-color: var(--brand1);
+    border-radius: var(--radius1);
+    width: 100%;
+}
+
+#modal button[type='submit']:disabled{
+    background-color: var(--grey1); 
+    color: var(--white);
+    border-color: var(--grey-1);
+}
+
+#modal button[type='submit']:enabled:hover{
+    background-color: var(--white);
+    color: var(--brand1);
+    border-color: var(--brand1);
+    border-radius: var(--radius1);
 }
