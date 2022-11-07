@@ -1,0 +1,32 @@
+.filter {
+    margin-top: 70px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.filter select{
+    background-color: var(--white);
+    border: 1px solid var(--brand3);
+    border-radius: var(--radius1);
+    outline: none;
+    font-size: var(--size5);
+    font-weight: var(--weight6);
+    color: var(--brand3);
+    padding: 4px 10px;
+    width: 120px;
+}
+
+.filter button {
+    background-color: var(--brand1);
+    color: var(--white);
+    font-size: var(--size4);
+    font-weight: var(--weight6);
+    padding: 4px 20px;
+    border-radius: var(--radius1);
+}
+
+.filter button:hover {
+    background-color: var(--brand2);
+}

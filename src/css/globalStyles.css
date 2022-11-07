@@ -102,12 +102,14 @@ option {
 button {
   cursor: pointer;
 }
+
 footer {
   display: grid;
   place-items: center;
   height: 48px;
   color: var(--brand1);
 }
+
 :root {
   --brand1: #4e2096;
   --brand2: #6127bd;
@@ -119,12 +121,12 @@ footer {
   --green: #33cc66;
   --alert: #ea534a;
 
-  --size1: 1.75rem; /* 28px */
-  --size2: 1.5rem; /* 24px */
-  --size3: 1.25rem; /* 20px */
-  --size4: 1rem; /* 16px */
+  --size1: 1.75rem;  /* 28px */
+  --size2: 1.5rem;   /* 24px */
+  --size3: 1.25rem;  /* 20px */
+  --size4: 1rem;     /* 16px */
   --size5: 0.875rem; /* 14px */
-  --size6: 0.625rem; /* 10px */
+  --size6: 0.75rem;  /* 12px */
 
   --weight7: 700;
   --weight6: 600;
