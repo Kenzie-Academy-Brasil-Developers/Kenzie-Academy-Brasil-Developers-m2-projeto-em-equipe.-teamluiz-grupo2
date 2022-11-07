@@ -1,0 +1,33 @@
+/* modal dinamico */
+.bgmodal {
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.678);
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgmodal .modal {
+    position: relative;
+    background-color: white;
+    box-sizing: border-box;
+    width: 520px;
+    height: 380px;
+    border-radius: 16px;
+    border-top: 42px solid #4E2096;
+    border-bottom: 13px solid #4E2096;
+}
+
+.bgmodal .modal .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: rebeccapurple;
+}
+
+.bgmodal .modal .delete-User{}
