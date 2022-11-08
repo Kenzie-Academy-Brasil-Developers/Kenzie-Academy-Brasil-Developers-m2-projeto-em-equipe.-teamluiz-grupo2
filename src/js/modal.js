@@ -387,5 +387,5 @@ function requisitar(data,type,id){
     }
 }
 
-export{modalPets,modalLogin, modalRegister }
+export{modalPets,modalLogin, modalRegister, modalDeleteUser, modalUpdateUser }
 
