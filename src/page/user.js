@@ -1,5 +1,5 @@
 import { modalPets } from "../js/modal.js";
-import { getUserData,readAllPets } from "../js/request.js";
+import { getAllPets, getUserData} from "../js/request.js";
 
 const user = await getUserData();
 
@@ -13,8 +13,12 @@ function openMenu() {
   const btmMenu = document.querySelector(".hamburger-lines");
   const menu = document.querySelector(".menus");
   if (menu) {
+    if (window.screen.width > 500) {
+      menu.classList.remove("show");
+    }
     btmMenu.addEventListener("click", () => {
       menu.classList.toggle("show");
+      btmMenu.classList.toggle("cancel-lines");
     });
   }
 }
@@ -149,7 +153,7 @@ async function openEditPet(){
     }
   ]
   const buttonAdd=document.querySelectorAll('.update-pet-btm')
-  let dataPets= await readAllPets()
+  let dataPets= await getAllPets()
   
   buttonAdd.forEach(el=>{
     el.addEventListener('click',(event)=>{

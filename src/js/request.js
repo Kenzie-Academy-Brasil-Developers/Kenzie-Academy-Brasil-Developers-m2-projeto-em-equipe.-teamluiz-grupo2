@@ -1,4 +1,12 @@
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com";
+
+async function getAllPets () {
+  const requestPets = await fetch(`${baseUrl}/pets`)
+  const responsePets = await requestPets.json()
+
+  return responsePets
+}
+
 const login = async (body) => {
   try {
     const request = await fetch(
@@ -41,6 +49,7 @@ const register = async (body) => {
     console.log(erro);
   }
 };
+
 async function getUserData() {
   const token = JSON.parse(localStorage.getItem("user"));
 
@@ -61,7 +70,6 @@ async function getUserData() {
     console.log(err);
   }
 }
-
 
 const deleteUser = async (token) => {
   try {
@@ -91,8 +99,10 @@ const updateUser = async (token, body) => {
     if (request.ok) {
       console.log("Updated profile!");
     }
-  } catch (error) {}
-};
+  } catch (error) {
+    
+  }
+}
 
 async function registerPet(data){
   let token=JSON.parse(localStorage.getItem('user'))
@@ -135,22 +145,4 @@ async function editPetProfile(data,id){
 }
 
 
-async function readAllPets(){
-  let token=JSON.parse(localStorage.getItem('user'))
-  try{
-    const request=await fetch(`${baseUrl}/pets`,{
-      method:'GET',
-      headers:{
-        'Content-Type':'application/json',
-        Authorization:`Bearer ${token}`
-      }
-    })
-    let dataJson=await request.json()
-    return dataJson
-  }
-  catch(err){
-    console.log(err)
-  }
-}
-
-export { login, register, getUserData, deleteUser, updateUser,registerPet,editPetProfile,readAllPets };
+export { getAllPets, login, register, getUserData, deleteUser, updateUser,registerPet,editPetProfile};
