@@ -1,4 +1,4 @@
-import { deleteUser, login, register, updateUser } from "./request.js";
+import { deleteUser, login, register, updateUser, registerPet,editPetProfile } from "./request.js";
 
 
 const modalLogin = () => {

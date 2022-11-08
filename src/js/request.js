@@ -111,7 +111,7 @@ async function registerPet(data){
       method:'POST',
       headers:{
         'Content-Type':'application/json',
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token.token}`
       },
       body:JSON.stringify(data)
     })
@@ -131,7 +131,7 @@ async function editPetProfile(data,id){
       method:'PATCH',
       headers:{
         'Content-Type':'application/json',
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token.token}`
       },
       body:JSON.stringify(data)
     })
