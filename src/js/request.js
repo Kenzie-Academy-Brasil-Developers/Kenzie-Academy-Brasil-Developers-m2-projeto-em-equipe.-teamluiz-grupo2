@@ -1,3 +1,12 @@
+const baseUrl = "https://m2-api-adot-pet.herokuapp.com";
+
+async function getAllPets () {
+  const requestPets = await fetch(`${baseUrl}/pets`)
+  const responsePets = await requestPets.json()
+
+  return responsePets
+}
+
 const login = async (body) => {
   try {
     const request = await fetch(
@@ -40,6 +49,7 @@ const register = async (body) => {
     console.log(erro);
   }
 };
+
 async function getUserData() {
   const token = JSON.parse(localStorage.getItem("user"));
 
@@ -60,8 +70,6 @@ async function getUserData() {
     console.log(err);
   }
 }
-
-const baseUrl = "https://m2-api-adot-pet.herokuapp.com";
 
 const deleteUser = async (token) => {
   try {
@@ -91,7 +99,9 @@ const updateUser = async (token, body) => {
     if (request.ok) {
       console.log("Updated profile!");
     }
-  } catch (error) {}
-};
+  } catch (error) {
+    
+  }
+}
 
-export { login, register, getUserData, deleteUser, updateUser };
+export { getAllPets, login, register, getUserData, deleteUser, updateUser };
