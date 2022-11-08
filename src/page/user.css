@@ -148,11 +148,14 @@ section {
   height: 26px;
   width: 32px;
   z-index: 2;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   background-image: url(../img/hamburger.png);
   background-position: center;
+}
+.header .container .cancel-lines {
+  background-image: url(../img/cancel.png);
 }
 
 .header .container div {
@@ -202,6 +205,9 @@ section {
 @media (max-width: 500px) {
   .container {
     width: 100%;
+  }
+  .header .container .hamburger-lines {
+    display: flex;
   }
   .header .container div {
     display: none;
