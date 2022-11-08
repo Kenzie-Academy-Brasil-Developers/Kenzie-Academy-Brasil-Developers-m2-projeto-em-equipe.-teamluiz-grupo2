@@ -52,11 +52,10 @@
     background-color: var(--white);
 }
 
-.pet-card .img{
+.pet-card .pet-img{
     width: 100%;
     height: 55%;
     border-radius: var(--radius2) var(--radius2) 0 0;
-    background-image: url('/src/img/roberto-nickson--s5WfAx74fM-unsplash.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
