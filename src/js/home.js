@@ -1,15 +1,35 @@
 import { getAllPets } from "./request.js"
 import { modalLogin,modalRegister } from "./modal.js"
 
+const ulPetsList = document.querySelector('.pets-list')
+const allPets = (await getAllPets()).filter((pet) => pet.available_for_adoption)
 
-const selectFilter = document.querySelector('.default')
-selectFilter.addEventListener('click', () => {
-    if (selectFilter.value == 'null') {
-        selectFilter.className = 'default'
-    } else {
-        selectFilter.className = 'selected'
-    }
-})
+
+function filterBySpecies () {
+    const selectFilter = document.querySelector('.default')
+    selectFilter.addEventListener('click', () => {      
+        if (selectFilter.value == 'null') {
+            selectFilter.className = 'default'
+
+            renderPetList(allPets)
+            
+        } else {
+            selectFilter.className = 'selected'
+            let filteredPets = allPets.filter((pet) => pet.species == selectFilter.value)
+            
+            if (filteredPets.length == 0) {
+                let liEmpty = document.createElement('li')
+                liEmpty.innerText = 'Desculpe, no momento não há itens dessa categoria'
+                ulPetsList.innerHTML = ''
+                ulPetsList.appendChild(liEmpty)
+                
+            } else {
+                renderPetList(filteredPets)
+            }
+        }
+    })
+}
+filterBySpecies()
 
 function createPetCard (obj) {
     let liPetCard       = document.createElement('li')
@@ -34,15 +54,15 @@ function createPetCard (obj) {
     return liPetCard
 }
 
-async function renderPetList () {
-    const ulPetsList = document.querySelector('.pets-list')
-    const allPets = await getAllPets()
-    allPets.filter((pet) => pet.available_for_adoption).forEach((pet) => {
+async function renderPetList (petsList) {
+    ulPetsList.innerHTML = ''
+    
+    petsList.forEach((pet) => {
         ulPetsList.appendChild(createPetCard(pet))
         
     })
 }
-renderPetList()
+renderPetList(allPets)
 
 
 const openLogin = () => {
@@ -68,5 +88,3 @@ const openRegister = () => {
 
 }
 openRegister()
-
-
