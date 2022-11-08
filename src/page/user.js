@@ -86,7 +86,7 @@ function rendeMyPets() {
 
 rendeMyPets();
 
-import { modalPets } from "../js/modal.js";
+import { modalDeleteUser, modalPets, modalUpdateUser } from "../js/modal.js";
 
 function openAddPet() {
   let dataInputs = [
@@ -137,7 +137,7 @@ openEditPet();
 function deleteProfile() {
   let btn = document.querySelector('#delete-account')
   btn.addEventListener('click', () => {
-      modalDeleteUser()
+     modalDeleteUser()
   })
 }
 function updateProfile() {
