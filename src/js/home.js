@@ -4,6 +4,50 @@ import { modalLogin,modalRegister } from "./modal.js"
 const ulPetsList = document.querySelector('.pets-list')
 const allPets = (await getAllPets()).filter((pet) => pet.available_for_adoption)
 
+const openLogin = () => {
+    const login = document.querySelector("#loginButton");
+    const body = document.querySelector("body");
+    login.addEventListener("click", () => {
+      const modal = modalLogin();
+      body.appendChild(modal);
+      modal.showModal();
+    });
+};
+  
+const openRegister = () => {
+    const register = document.querySelector("#registerButton");
+    const body = document.querySelector("body");
+    register.addEventListener("click", () => {
+    const modal = modalRegister();
+    body.appendChild(modal);
+    modal.showModal();
+});
+};
+
+if (localStorage.getItem('user')) {
+    const divNavButtons = document.querySelector('.nav-buttons')
+    divNavButtons.innerHTML = ''
+    
+    const buttonProfile = document.createElement('button')
+    buttonProfile.innerText = 'Perfil'
+    buttonProfile.addEventListener('click', () => {
+        location.assign('/src/page/user.html')
+    })
+    
+    const buttonLogout = document.createElement('button')
+    buttonLogout.className = 'emphasis-button'
+    buttonLogout.innerText = 'Logout'
+    buttonLogout.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        location.reload()
+      });
+
+    divNavButtons.append(buttonProfile, buttonLogout)
+} else {
+    openLogin();
+    openRegister();
+}
+
 
 function filterBySpecies () {
     const selectFilter = document.querySelector('.default')
@@ -46,6 +90,10 @@ function createPetCard (obj) {
     h2PetName.innerText       = obj.name
     smallPetSpecies.innerText = obj.species
     buttonAdopt.innerText     = 'Me adota?'
+    
+    if (localStorage.getItem('user')) {
+        buttonAdopt.style.display = 'unset'
+    }
 
     divButton.appendChild(buttonAdopt)
     divPetInfo.append(h2PetName, smallPetSpecies, divButton)
@@ -63,27 +111,3 @@ async function renderPetList (petsList) {
     })
 }
 renderPetList(allPets)
-
-
-const openLogin = () => {
-  const login = document.querySelector("#loginButton");
-  const body = document.querySelector("body");
-  login.addEventListener("click", () => {
-    const modal = modalLogin();
-    body.appendChild(modal);
-    modal.showModal();
-  });
-};
-openLogin();
-
-
-const openRegister = () => {
-  const register = document.querySelector("#registerButton");
-  const body = document.querySelector("body");
-  register.addEventListener("click", () => {
-    const modal = modalRegister();
-    body.appendChild(modal);
-    modal.showModal();
-  });
-};
-openRegister();
