@@ -8,6 +8,20 @@ const userEmail = document.querySelector(".user-email");
 const registerPetBtm = document.querySelector(".my-pets-ul");
 const userPets = document.querySelector(".my-pets-ul");
 
+function openMenu() {
+  const btmMenu = document.querySelector(".hamburger-lines");
+  const menu = document.querySelector(".menus");
+  if (menu) {
+    if (window.screen.width > 500) {
+      menu.classList.remove("show");
+    }
+    btmMenu.addEventListener("click", () => {
+      menu.classList.toggle("show");
+      btmMenu.classList.toggle("cancel-lines");
+    });
+  }
+}
+openMenu();
 // const userBirthday = document.querySelector(".user-birthday");
 userName.innerText = user.name;
 userEmail.innerText = user.email;
