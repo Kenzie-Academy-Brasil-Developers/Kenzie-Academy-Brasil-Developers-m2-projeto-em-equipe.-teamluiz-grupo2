@@ -22,7 +22,7 @@ const login = async (body) => {
     const response = await request.json();
     if (request.ok) {
       localStorage.setItem("user", JSON.stringify(response));
-      window.location.replace("/src/page/user.html");
+      window.location.reload("/./index.html");
     }else{
     
     }
