@@ -2,8 +2,8 @@
     margin-top: 70px;
     display: flex;
     gap: 12px;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .filter select{
@@ -41,6 +41,7 @@
     flex-wrap: wrap;
     gap: 50px;
     max-width: 950px;
+    margin-bottom: 60px;
 }
 
 .pet-card{
@@ -107,4 +108,9 @@
     .pets-list {
         max-width: 450px;
     }
+}
+
+
+.footer{
+    background-color: var(--grey3);
 }
