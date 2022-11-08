@@ -55,4 +55,44 @@ async function getUserData() {
     console.log(err);
   }
 }
-export { login, register, getUserData };
+
+const baseUrl = "https://m2-api-adot-pet.herokuapp.com"
+
+const deleteUser = async (token) => {
+  try {
+    const request = await fetch(`${baseUrl}/users/profile`, {
+      method: "DELETE",
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    })
+
+    if(request.ok){
+      console.log('Profile deleted!')
+    }
+  } catch (error) {
+    
+  }
+}
+
+const updateUser = async (token, body) => {
+  try {
+    const request = await fetch(`${baseUrl}/users/profile`, {
+      method: "PATCH",
+      headers:{
+        Authorization:`Bearer ${token}`
+      },
+      body: JSON.stringify(body),
+    })
+
+    if(request.ok){
+      console.log('Updated profile!')
+    }
+  } catch (error) {
+    
+  }
+}
+
+
+
+export { login, register, getUserData, deleteUser, updateUser };
