@@ -114,12 +114,13 @@ footer {
   --brand1: #4e2096;
   --brand2: #6127bd;
   --brand3: #b48cf2;
-  --grey1: #1b1c1e;
-  --grey2: #90a4ae;
-  --grey3: #f1eef7;
-  --white: #ffffff;
-  --green: #33cc66;
-  --alert: #ea534a;
+  --grey1:  #1b1c1e;
+  --grey2:  #90a4ae;
+  --grey3:  #f1eef7;
+  --white:  #ffffff;
+  --green:  #33cc66;
+  --green2: #3fda73;
+  --alert:  #ea534a;
 
   --size1: 1.75rem;  /* 28px */
   --size2: 1.5rem;   /* 24px */
