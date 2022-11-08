@@ -317,7 +317,7 @@ dialog{
     #updateProfile{
         max-width: 240px;
     }
-    #updateProfile input, button[type="submit"]{
+    #updateProfile input, button{
         min-width: 240px;
     }
     #deleteProfile h2{
