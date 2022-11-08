@@ -3,14 +3,28 @@ dialog{
     padding: 0;
     box-sizing: border-box;
 }
+@keyframes animateModal {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 .modal::backdrop{
     background-color: rgba(27, 28, 30, 0.65);
+    z-index: 1;
 }
 .modal{
+    animation: animateModal 1s;
     border: none;
     margin: auto;
     border-radius: var(--radius1);
-
+    position: fixed;
+    z-index: 1;
 }
 .modal-container{
     width: 520px;
@@ -21,6 +35,7 @@ dialog{
     border-top: 40px solid var(--brand1);
     border-bottom: 15px solid var(--brand1);
     position: relative;
+    z-index: 1;
 }
 
 .close-modal{
@@ -66,14 +81,20 @@ dialog{
 
 }
 .modal-body p {
+    display: flex;
+    gap: 4px;
     font-size: 8px;
     line-height: 11px;
     font-weight: var(--weight4);
     color: var(--grey1);
 }
-.modal-body p a {
-    text-decoration: none;
+.purple {
     color: var(--brand1);
+    cursor: pointer;
+}
+.red{
+    
+    color: red;
 }
 
 /* Matheus modal */
