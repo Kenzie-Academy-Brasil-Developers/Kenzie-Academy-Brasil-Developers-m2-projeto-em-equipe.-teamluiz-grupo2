@@ -1,15 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/css/modal.css">
-    <link rel="stylesheet" href="/src/css/globalStyles.css">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="./src/css/globalStyles.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/home.css">
+    <link rel="stylesheet" href="./src/css/modal.css">
+    
     <title>Kenzie Pets</title>
   </head>
+  
   <body>
-     <!-- <div class="background modal-bg">
+
+    <header class="header">
+      <h1>KenziePets</h1>
+      <div>
+        <button id="registerButton">Cadastro</button>
+        <button id="loginButton" class="emphasis-button">Login</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="container filter">
+        <select>
+          <option value="null">Espécie</option>
+        </select>
+        <button>Buscar</button>
+      </div>
+
+      <div class="container container-list">
+
+        <ul class="pets-list">
+          <li class="pet-card">
+            <div class="img"></div>
+            
+            <div>
+              <h2>Bidu</h2>
+              <small>Cachorro</small>
+              <div>
+                <button>Me adota?</button>
+              </div>
+            </div>
+          </li>
+  
+          <li class="pet-card">
+            <div class="img"></div>
+            
+            <div>
+              <h2>Bidu</h2>
+              <small>Cachorro</small>
+              <div>
+                <button>Me adota?</button>
+              </div>
+            </div>
+          </li>
+  
+          <li class="pet-card">
+            <div class="img"></div>
+            
+            <div>
+              <h2>Bidu</h2>
+              <small>Cachorro</small>
+              <div>
+                <button>Me adota?</button>
+              </div>
+            </div>
+          </li>
+  
+          <li class="pet-card">
+            <div class="img"></div>
+            
+            <div>
+              <h2>Bidu</h2>
+              <small>Cachorro</small>
+              <div>
+                <button>Me adota?</button>
+              </div>
+            </div>
+          </li>
+  
+          <li class="pet-card">
+            <div class="img"></div>
+            
+            <div>
+              <h2>Bidu</h2>
+              <small>Cachorro</small>
+              <div>
+                <button>Me adota?</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>KenziePets | Todos os Direitos Reservados</p>
+    </footer>
+
+     <!-- <!-- <div class="background modal-bg">
         <div class="modal">
           <div class="header">
             <figure class="close">
@@ -17,25 +109,24 @@
             </figure>
           </div>
 
-          <form id="updateProfile">
+          <!-- <form id="updateProfile">
             <h2>Atualizar perfil</h2>
             <input id="name" type="text"  placeholder="Nome">
             <input id="email" type="email" placeholder="E-mail">
             <input id="avatar_url" type="text" placeholder="Avatar">
             <button id="up" type="submit">Atualizar</button>
-          </form>
+          </form> -->
 
-          <div id="deleteProfile">
+          <!-- <div id="deleteProfile">
             <h2>Deseja mesmo deletar sua conta?</h2>
             <button class="cancel">Não desejo deletar minha conta</button>
             <button class="confirm">Quero deletar minha conta</button>
-          </div>
+          </div> -->
           
           <div class="footer">
           </div>
         </div>
-    </div> -->
-    
+    </div>
     <script type="module" src="/src/js/home.js"></script>
   </body>
 </html>

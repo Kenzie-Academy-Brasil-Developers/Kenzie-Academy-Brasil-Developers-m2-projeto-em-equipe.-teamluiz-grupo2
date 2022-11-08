@@ -12,7 +12,22 @@ const userPets = document.querySelector(".my-pets-ul");
 userName.innerText = user.name;
 userEmail.innerText = user.email;
 userImg.src = user.avatar_url;
-
+function logoutHome() {
+  const logout = document.querySelector("#logout");
+  const home = document.querySelector("#home");
+  if (logout) {
+    logout.addEventListener("click", () => {
+      localStorage.removeItem("user");
+      window.location.replace("../../index.html");
+    });
+  }
+  if (home) {
+    home.addEventListener("click", () => {
+      window.location.replace("../../index.html");
+    });
+  }
+}
+logoutHome();
 function createPetsCards(pet) {
   const li = document.createElement("li");
   const petImg = document.createElement("img");
@@ -57,49 +72,50 @@ function rendeMyPets() {
 
 rendeMyPets();
 
-import {modalPets} from '../js/modal.js'
+import { modalPets } from "../js/modal.js";
 
-function openAddPet(){
-  let dataInputs=[
-      {
-        'nome':'name',
-        'type':'text',
-        'placeHolder':'nome',
-        'required':true,
-      },
-      {
-        'nome':'raça',
-        'type':'text',
-        'placeHolder':'Raça',
-        'required':true,
-      },
-      {
-        'nome':'avatar',
-        'type':'url',
-        'placeHolder':'Avatar',
-      }
-  ]
-  const buttonAdd=document.querySelector('.register-pet')
-  buttonAdd.addEventListener('click',()=>{
-      modalPets('Cadastrar Pet',dataInputs)
-  })
-}
-
-function openEditPet(){
-  let dataInputs=[
+function openAddPet() {
+  let dataInputs = [
     {
-      'nome':'avatar',
-      'type':'url',
-      'placeHolder':'Avatar',
-      'required':true
-    }
-  ]
-  const buttonAdd=document.querySelector('.update-pet-btm')
-  console.log(buttonAdd)
-  buttonAdd.addEventListener('click',()=>{
-      modalPets('Editar Pet',dataInputs)
-  })
+      nome: "name",
+      type: "text",
+      placeHolder: "nome",
+      required: true,
+    },
+    {
+      nome: "raça",
+      type: "text",
+      placeHolder: "Raça",
+      required: true,
+    },
+    {
+      nome: "avatar",
+      type: "url",
+      placeHolder: "Avatar",
+    },
+  ];
+  const buttonAdd = document.querySelector(".register-pet");
+  buttonAdd.addEventListener("click", () => {
+    modalPets("Cadastrar Pet", dataInputs);
+  });
 }
 
-openAddPet()
-openEditPet()
+function openEditPet() {
+  let dataInputs = [
+    {
+      nome: "avatar",
+      type: "url",
+      placeHolder: "Avatar",
+      required: true,
+    },
+  ];
+  const buttonAdd = document.querySelector(".update-pet-btm");
+  if (buttonAdd) {
+    buttonAdd.addEventListener("click", () => {
+      modalPets("Editar Pet", dataInputs);
+    });
+  }
+}
+
+openAddPet();
+openEditPet();

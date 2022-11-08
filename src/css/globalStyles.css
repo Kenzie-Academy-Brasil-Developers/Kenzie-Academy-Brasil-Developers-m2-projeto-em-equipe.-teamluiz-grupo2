@@ -102,29 +102,32 @@ option {
 button {
   cursor: pointer;
 }
+
 footer {
   display: grid;
   place-items: center;
-  height: 48px;
+  height: 60px;
   color: var(--brand1);
 }
+
 :root {
   --brand1: #4e2096;
   --brand2: #6127bd;
   --brand3: #b48cf2;
-  --grey1: #1b1c1e;
-  --grey2: #90a4ae;
-  --grey3: #f1eef7;
-  --white: #ffffff;
-  --green: #33cc66;
-  --alert: #ea534a;
+  --grey1:  #1b1c1e;
+  --grey2:  #90a4ae;
+  --grey3:  #f1eef7;
+  --white:  #ffffff;
+  --green:  #33cc66;
+  --green2: #3fda73;
+  --alert:  #ea534a;
 
-  --size1: 1.75rem; /* 28px */
-  --size2: 1.5rem; /* 24px */
-  --size3: 1.25rem; /* 20px */
-  --size4: 1rem; /* 16px */
+  --size1: 1.75rem;  /* 28px */
+  --size2: 1.5rem;   /* 24px */
+  --size3: 1.25rem;  /* 20px */
+  --size4: 1rem;     /* 16px */
   --size5: 0.875rem; /* 14px */
-  --size6: 0.625rem; /* 10px */
+  --size6: 0.75rem;  /* 12px */
 
   --weight7: 700;
   --weight6: 600;
@@ -138,7 +141,7 @@ footer {
 }
 
 .container {
-  width: 70rem;
+  width: 80%;
   max-width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
