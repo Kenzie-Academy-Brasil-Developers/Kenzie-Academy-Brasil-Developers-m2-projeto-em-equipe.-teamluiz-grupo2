@@ -1,22 +1,4 @@
-async function getUserData() {
-  try {
-    const request = await fetch(
-      "https://m2-api-adot-pet.herokuapp.com/users/profile",
-      {
-        method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4MzUwOTAsImV4cCI6MTY2ODQzOTg5MCwic3ViIjoiNjc2MjQ5MTYtM2ZlOC00MjY2LWIzY2EtZDhlOTBkOTk0YmQwIn0.zf7JcKCowe9T66mr8VL_yK-U6otBbsj8c79QkTL3kds",
-        },
-      }
-    );
-    const response = await request.json();
-
-    return response;
-  } catch (err) {
-    console.log(err);
-  }
-}
+import { getUserData } from "../js/request.js";
 
 const user = await getUserData();
 
@@ -74,3 +56,50 @@ function rendeMyPets() {
 }
 
 rendeMyPets();
+
+import {modalPets} from '../js/modal.js'
+
+function openAddPet(){
+  let dataInputs=[
+      {
+        'nome':'name',
+        'type':'text',
+        'placeHolder':'nome',
+        'required':true,
+      },
+      {
+        'nome':'raça',
+        'type':'text',
+        'placeHolder':'Raça',
+        'required':true,
+      },
+      {
+        'nome':'avatar',
+        'type':'url',
+        'placeHolder':'Avatar',
+      }
+  ]
+  const buttonAdd=document.querySelector('.register-pet')
+  buttonAdd.addEventListener('click',()=>{
+      modalPets('Cadastrar Pet',dataInputs)
+  })
+}
+
+function openEditPet(){
+  let dataInputs=[
+    {
+      'nome':'avatar',
+      'type':'url',
+      'placeHolder':'Avatar',
+      'required':true
+    }
+  ]
+  const buttonAdd=document.querySelector('.update-pet-btm')
+  console.log(buttonAdd)
+  buttonAdd.addEventListener('click',()=>{
+      modalPets('Editar Pet',dataInputs)
+  })
+}
+
+openAddPet()
+openEditPet()
