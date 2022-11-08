@@ -58,7 +58,7 @@ async function getUserData() {
 
 const baseUrl = "https://m2-api-adot-pet.herokuapp.com"
 
-const deleteUser = async (token) => {
+async function deleteUser (token) {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "DELETE",
@@ -75,7 +75,7 @@ const deleteUser = async (token) => {
   }
 }
 
-const updateUser = async (token, body) => {
+async function updateUser (token, body) {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "PATCH",
