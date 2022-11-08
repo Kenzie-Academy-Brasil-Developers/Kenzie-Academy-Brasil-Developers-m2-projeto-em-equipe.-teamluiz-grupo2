@@ -277,16 +277,7 @@ export { modalPets }
 
 
 function modalDeleteUser() {
-    let body = document.querySelector('body')
     //Criando elementos
-    //Corpo do modal
-    let background = document.createElement('div')
-    let modal = document.createElement('div')
-    let header = document.createElement('div')
-    let close = document.createElement('figure')
-    let closeIcon = document.createElement('img')
-    let footer = document.createElement('div')
-
     let deleteProfile = document.createElement('div')
     let title = document.createElement('h2')
     let btnCancel = document.createElement('button')
@@ -296,55 +287,32 @@ function modalDeleteUser() {
     deleteProfile.id = "deleteProfile"
     btnCancel.classList = "cancel"
     btnConfirm.classList = "confirm"
-    background.classList = "background modal-bg"
-    modal.classList = "modal"
-    header.classList = "header"
-    closeIcon.classList = "close"
-    footer.classList = "footer"
-
 
     //Atibuindo valores
     title.innerText = "Deseja mesmo deletar sua conta?"
     btnCancel.innerText = "Não desejo deletar minha conta"
     btnConfirm.innerText = "Quero deletar minha conta"
-    closeIcon.src = "./src/img/Vector.png" 
-    closeIcon.alt = "Botão de fechar modal"
 
     //Eventos
-    background.addEventListener('click', (event) => {
-        let evento = event.target.classList[0]
-        if(evento == "background" ||evento == "close" || evento == "cancel"){
-            background.remove()
-        }
+    btnCancel.addEventListener('click', (event) => {
+        let bgmodal = document.querySelector('.modal-bg')
+        bgmodal.remove()
     })
     btnConfirm.addEventListener('click', async (event) => {
         //pega token
         // let user = getLocalStorage()
-        // await deleteUser(user.token)
-        console.log("token")
+        await deleteUser(user.token)
     })
 
     //Hierarquia
     deleteProfile.append(title, btnCancel, btnConfirm)
-    close.append(closeIcon)
-    header.append(close)
-    modal.append(header, deleteProfile, footer)
-    background.append(modal)
 
-    body.append(background)
+
+    //Retornando
+    return deleteProfile
 }
-
 function modalUpdateUser() {
-    let body = document.querySelector('body')
     //Criando elementos
-    //Corpo do modal
-    let background = document.createElement('div')
-    let modal = document.createElement('div')
-    let header = document.createElement('div')
-    let close = document.createElement('figure')
-    let closeIcon = document.createElement('img')
-    let footer = document.createElement('div')
-
     let updateProfile = document.createElement('form')
     let title = document.createElement('h2')
     let inputUsername = document.createElement('input')
@@ -372,49 +340,27 @@ function modalUpdateUser() {
 
     btnUpdate.type = "submit"
 
-    background.classList = "background modal-bg"
-    modal.classList = "modal"
-    header.classList = "header"
-    closeIcon.classList = "close"
-    footer.classList = "footer"
-
     //Atribuindo valores
     title.innerText = "Atualizar perfil"
     btnUpdate.innerText = "Atualizar"
-    closeIcon.src = "./src/img/Vector.png" 
-    closeIcon.alt = "Botão de fechar modal"
-    
     
     //Eventos
-    background.addEventListener('click', (event) => {
-        let evento = event.target.classList[0]
-        if(evento == "background" ||evento == "close" || evento == "cancel"){
-            background.remove()
-        }
-    })
-    updateProfile.addEventListener('submit', async (event) => {
-        event.preventDefault()
+    updateProfile.addEventListener('submit', async () => {
         let inputs = [...updateProfile.elements]
         let body = {}
+        //localStorage
+        // let user = getLocalStorage()
         inputs.forEach(input => {
             if(input.tagName == 'INPUT' && input.value != ""){
                 body[input.id] = input.value
             }
         })
-        console.log(body)
-        // await updateUser(user.token, body)
+        await updateUser(user.token, body)
     })
 
     //Hierarquia
-    updateProfile.append(title, inputUsername, inputEmail, inputAvatar, btnUpdate)
-    close.append(closeIcon)
-    header.append(close)
-    modal.append(header, updateProfile, footer)
-    background.append(modal)
+    updateProfile.append(title, inputUsername, inputEmail, inputAvatar)
 
-    body.append(background)
-
-    console.log(updateProfile)
+    //Retornando
+    return updateProfile
 }
-
-export { modalDeleteUser, modalUpdateUser}
