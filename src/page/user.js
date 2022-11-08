@@ -12,8 +12,12 @@ function openMenu() {
   const btmMenu = document.querySelector(".hamburger-lines");
   const menu = document.querySelector(".menus");
   if (menu) {
+    if (window.screen.width > 500) {
+      menu.classList.remove("show");
+    }
     btmMenu.addEventListener("click", () => {
       menu.classList.toggle("show");
+      btmMenu.classList.toggle("cancel-lines");
     });
   }
 }
