@@ -14,10 +14,13 @@ const login = async (body) => {
     if (request.ok) {
       localStorage.setItem("user", JSON.stringify(response));
       window.location.replace("/src/page/user.html");
+    }else{
+    
     }
     return response;
   } catch (erro) {
     console.log(erro);
+   
   }
 };
 
@@ -31,6 +34,7 @@ const register = async (body) => {
       body: JSON.stringify(body),
     });
     const response = await request.json();
+
     return response;
   } catch (erro) {
     console.log(erro);
