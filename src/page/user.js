@@ -1,3 +1,4 @@
+<<<<<<< .merge_file_p6F6nm
 import { modalPets } from "../js/modal.js";
 import { getAllPets, getUserData} from "../js/request.js";
 
@@ -169,3 +170,5 @@ async function openEditPet(){
 
 openAddPet()
 openEditPet()
+=======
+>>>>>>> .merge_file_0IFC8o
