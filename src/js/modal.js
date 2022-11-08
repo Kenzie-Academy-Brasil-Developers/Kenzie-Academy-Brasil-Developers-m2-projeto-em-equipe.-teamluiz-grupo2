@@ -171,111 +171,6 @@ const modalRegister = () => {
   
 }
 
-export { modalLogin, modalRegister }
-
-
-
-function modalBase(titulo = '', main = '', footer = '') {
-    let body = document.querySelector('body')
-    //criação dos elementos
-    let backModal = document.createElement('section')
-    let bodyModal = document.createElement('div')
-    let headerModal = document.createElement('div')
-    let titleModal = document.createElement('h2')
-    let divClose = document.createElement('div')
-    let closeModal = document.createElement('P')
-    let mainModal = document.createElement('div')
-    let footerModal = document.createElement('div')
-
-    // ids e classes
-    backModal.id = 'modal'
-    bodyModal.classList = 'body'
-    headerModal.classList = 'header'
-    mainModal.classList = 'main'
-    footerModal.classList = 'footer'
-
-    //textos
-    titleModal.innerText = `${titulo}`
-    closeModal.innerText = 'X'
-
-    //funções
-    divClose.addEventListener('click', () => {
-        backModal.remove()
-    })
-
-    backModal.addEventListener('click', (event) => {
-        event.stopPropagation()
-        if (event.target.id == 'modal') {
-            backModal.remove()
-        }
-    })
-
-    //appends
-    divClose.append(closeModal)
-    headerModal.append(titleModal, divClose)
-    mainModal.append(main)
-    footerModal.append(footer)
-    bodyModal.append(headerModal, mainModal, footerModal)
-    backModal.append(bodyModal)
-    body.append(backModal)
-    return backModal
-}
-
-function modalPets(titulo, inputs = []) {
-    let mainCadastro = document.createElement('div')
-    let tituloForm = document.createElement('h2')
-    let form = document.createElement('form')
-    let buttonSubmit = document.createElement('button')
-
-    buttonSubmit.innerText = titulo.split(' ')[0]
-    buttonSubmit.type = 'submit'
-    buttonSubmit.disabled = true
-
-    form.append(tituloForm)
-    tituloForm.innerText = titulo
-    inputs.forEach(el => {
-        let input = document.createElement('input')
-        input.type = el.type
-        input.placeholder = el.placeHolder
-        input.id = el.nome
-        input.required = (el.required)
-        form.append(input)
-    })
-
-    let data = {}
-    let formData = [...form.elements]
-    formData.forEach(el => {
-        el.addEventListener('input', () => {
-            buttonSubmit.disabled = true
-            formData.forEach(el => {
-                if (el.value != '') {
-                    buttonSubmit.disabled = false
-                }
-            })
-        })
-    })
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault()
-        formData.forEach(el => {
-            if (el.tagName == 'INPUT' && el.value != '') {
-                data[el.id] = el.value
-            }
-        })
-        let backModal = document.querySelector('#modal')
-        backModal.remove()
-        form.reset()
-        return (data)
-    })
-
-    form.append(buttonSubmit)
-    mainCadastro.append(form)
-    modalBase('', mainCadastro)
-}
-
-export { modalPets }
-
-
 function modalDeleteUser() {
     //Criando elementos
     let deleteProfile = document.createElement('div')
@@ -364,3 +259,133 @@ function modalUpdateUser() {
     //Retornando
     return updateProfile
 }
+
+function modalBase(titulo='',main='',footer=''){
+    let body=document.querySelector('body')
+    //criação dos elementos
+    let backModal=document.createElement('section')
+    let bodyModal=document.createElement('div')
+    let headerModal=document.createElement('div')
+    let titleModal=document.createElement('h2')
+    let divClose=document.createElement('div')
+    let closeModal=document.createElement('P')
+    let mainModal=document.createElement('div')
+    let footerModal=document.createElement('div')
+
+    // ids e classes
+    backModal.id='modal'
+    bodyModal.classList='body'
+    headerModal.classList='header'
+    mainModal.classList='main'
+    footerModal.classList='footer'
+
+    //textos
+    titleModal.innerText=`${titulo}`
+    closeModal.innerText='X'
+
+    //funções
+    divClose.addEventListener('click',()=>{
+        backModal.remove()
+    })
+
+    backModal.addEventListener('click',(event)=>{
+        event.stopPropagation()
+        if(event.target.id=='modal'){
+            backModal.remove()
+        }
+    })
+
+    //appends
+    divClose.append(closeModal)
+    headerModal.append(titleModal,divClose)
+    mainModal.append(main)
+    footerModal.append(footer)
+    bodyModal.append(headerModal,mainModal,footerModal)
+    backModal.append(bodyModal)    
+    body.append(backModal)
+}
+
+function modalPets(titulo,inputs=[],id=''){
+    let mainCadastro=document.createElement('div')
+    let tituloForm=document.createElement('h2')
+    let form=document.createElement('form')
+    let buttonSubmit=document.createElement('button')
+
+    buttonSubmit.innerText=titulo.split(' ')[0]
+    buttonSubmit.type='submit'
+    buttonSubmit.disabled=true
+
+    form.append(tituloForm)
+    tituloForm.innerText=titulo
+    inputs.forEach(el=>{
+        let input=document.createElement(el.element || 'input')
+        if(el.element==undefined){
+            input.type=el.type || 'text'
+            input.placeholder=el.placeHolder
+            input.value=el.value || ''
+        }
+        
+        if(el.element=='select'){
+            input.name=el.name || el.id
+            let option0=document.createElement('option')
+            option0.innerText='Selecionar'
+            option0.value=''
+            input.append(option0)
+            el.options.forEach(el=>{
+                let option=document.createElement('option')
+                option.innerText=el.text || el.option
+                input.append(option)
+            })
+        }
+        
+        input.id=el.id
+        if(el.extras){
+            el.extras.forEach(el=>{
+                input[el]=true
+            })
+        }
+        form.append(input)
+    })
+
+    let formData=[...form.elements]
+    formData.forEach(el=>{
+        el.addEventListener('input',()=>{
+            buttonSubmit.disabled=true
+            formData.forEach(el=>{
+                if(el.value!=''){
+                    buttonSubmit.disabled=false
+                }
+            })
+        })
+    })
+    
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault()
+        let data={}
+        formData.forEach(el=>{
+            if((el.tagName=='INPUT' || el.tagName=='SELECT') && el.value!=''){
+                data[el.id]=el.value
+            }
+        })
+        let backModal=document.querySelector('#modal')
+        backModal.remove()
+        form.reset()
+        requisitar(data,buttonSubmit.innerText,id)
+    })
+    
+    form.append(buttonSubmit)
+    mainCadastro.append(form)
+    modalBase('',mainCadastro)
+}
+
+function requisitar(data,type,id){
+    if(type.toLowerCase()=='cadastrar'){
+        registerPet(data)
+    }
+    if(type.toLowerCase()=='editar'){
+        editPetProfile(data,id)
+    }
+}
+
+export{modalPets,modalLogin, modalRegister }
+
