@@ -8,14 +8,30 @@
 
 .filter select{
     background-color: var(--white);
-    border: 1px solid var(--brand3);
     border-radius: var(--radius1);
     outline: none;
     font-size: var(--size5);
     font-weight: var(--weight6);
-    color: var(--brand3);
     padding: 4px 10px;
     width: 120px;
+}
+
+.filter .default{
+    border: 1px solid var(--brand3);
+    color: var(--brand3);
+}
+
+.filter .selected{
+    border: 1px solid var(--brand1);
+    color: var(--brand1);
+}
+
+.filter select option{
+    color: var(--brand1);
+}
+
+.filter select .null{
+    color: var(--brand3);
 }
 
 .filter button {

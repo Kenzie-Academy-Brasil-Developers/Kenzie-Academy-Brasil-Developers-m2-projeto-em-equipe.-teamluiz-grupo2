@@ -23,10 +23,13 @@ const login = async (body) => {
     if (request.ok) {
       localStorage.setItem("user", JSON.stringify(response));
       window.location.replace("/src/page/user.html");
+    }else{
+    
     }
     return response;
   } catch (erro) {
     console.log(erro);
+   
   }
 };
 
@@ -40,6 +43,7 @@ const register = async (body) => {
       body: JSON.stringify(body),
     });
     const response = await request.json();
+
     return response;
   } catch (erro) {
     console.log(erro);
@@ -47,14 +51,15 @@ const register = async (body) => {
 };
 
 async function getUserData() {
+  const token = JSON.parse(localStorage.getItem("user"));
+
   try {
     const request = await fetch(
       "https://m2-api-adot-pet.herokuapp.com/users/profile",
       {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4MzUwOTAsImV4cCI6MTY2ODQzOTg5MCwic3ViIjoiNjc2MjQ5MTYtM2ZlOC00MjY2LWIzY2EtZDhlOTBkOTk0YmQwIn0.zf7JcKCowe9T66mr8VL_yK-U6otBbsj8c79QkTL3kds",
+          Authorization: `Bearer ${token.token}`,
         },
       }
     );
@@ -70,31 +75,29 @@ const deleteUser = async (token) => {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "DELETE",
-      headers:{
-        Authorization:`Bearer ${token}`
-      }
-    })
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    if(request.ok){
-      console.log('Profile deleted!')
+    if (request.ok) {
+      console.log("Profile deleted!");
     }
-  } catch (error) {
-    
-  }
-}
+  } catch (error) {}
+};
 
 const updateUser = async (token, body) => {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "PATCH",
-      headers:{
-        Authorization:`Bearer ${token}`
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(body),
-    })
+    });
 
-    if(request.ok){
-      console.log('Updated profile!')
+    if (request.ok) {
+      console.log("Updated profile!");
     }
   } catch (error) {
     

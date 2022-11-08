@@ -2,6 +2,15 @@ import { getAllPets } from "./request.js"
 import { modalLogin,modalRegister } from "./modal.js"
 
 
+const selectFilter = document.querySelector('.default')
+selectFilter.addEventListener('click', () => {
+    if (selectFilter.value == 'null') {
+        selectFilter.className = 'default'
+    } else {
+        selectFilter.className = 'selected'
+    }
+})
+
 function createPetCard (obj) {
     let liPetCard       = document.createElement('li')
     let divPetImg       = document.createElement('div')
