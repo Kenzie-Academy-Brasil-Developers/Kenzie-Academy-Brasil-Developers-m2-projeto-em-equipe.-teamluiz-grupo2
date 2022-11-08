@@ -1,4 +1,5 @@
-import { getUserData } from "../js/request.js";
+import { modalPets } from "../js/modal.js";
+import { getAllPets, getUserData} from "../js/request.js";
 
 const user = await getUserData();
 
@@ -69,6 +70,7 @@ function createPetsCards(pet) {
   const updatePet = document.createElement("button");
   updatePet.innerText = "Atualizar";
   updatePet.classList = "update-pet-btm";
+  updatePet.id=pet.id
 
   li.append(petImg, infoContainer);
   infoContainer.append(petName, petSpecies, petStatus, updatePet);
@@ -86,50 +88,84 @@ function rendeMyPets() {
 
 rendeMyPets();
 
-import { modalPets } from "../js/modal.js";
 
-function openAddPet() {
-  let dataInputs = [
-    {
-      nome: "name",
-      type: "text",
-      placeHolder: "nome",
-      required: true,
-    },
-    {
-      nome: "raça",
-      type: "text",
-      placeHolder: "Raça",
-      required: true,
-    },
-    {
-      nome: "avatar",
-      type: "url",
-      placeHolder: "Avatar",
-    },
-  ];
-  const buttonAdd = document.querySelector(".register-pet");
-  buttonAdd.addEventListener("click", () => {
-    modalPets("Cadastrar Pet", dataInputs);
-  });
+async function openAddPet(){
+  let dataInputs=[
+      {
+        'id':'name',
+        'type':'text',
+        'placeHolder':'nome',
+        'extras':['required'],
+      },
+      {
+        'id':'bread',
+        'type':'text',
+        'placeHolder':'Raça',
+        'extras':['required'],
+      },
+      {
+        'id':'species',
+        'element':'select',
+        'options':[
+          {'option':'Cachorro'},
+          {'option':'Gato'},
+          {'option':'Aves'},
+          {'option':'Repteis'},
+          {'option':'outros'}
+      ],
+      'extras':['required'],
+      },
+      {
+        'id':'avatar_url',
+        'type':'url',
+        'placeHolder':'Avatar',
+      }
+  ]
+  const buttonAdd=document.querySelector('.register-pet')
+  buttonAdd.addEventListener('click',()=>{
+    modalPets('Cadastrar Pet',dataInputs)
+  })
 }
 
-function openEditPet() {
-  let dataInputs = [
+async function openEditPet(){
+  let dataInputs=[
     {
-      nome: "avatar",
-      type: "url",
-      placeHolder: "Avatar",
-      required: true,
+      'id':'name',
+      'type':'text',
+      'placeHolder':'nome',
+      'extras':['required']
     },
-  ];
-  const buttonAdd = document.querySelector(".update-pet-btm");
-  if (buttonAdd) {
-    buttonAdd.addEventListener("click", () => {
-      modalPets("Editar Pet", dataInputs);
-    });
-  }
+    {
+      'id':'bread',
+      'type':'text',
+      'placeHolder':'Raça',
+      'extras':['required']
+    },
+    {
+      'extras':['readOnly','required'],
+      'id':'species',
+      'placeHolder':'Especie',
+    },
+    {
+      'id':'avatar_url',
+      'type':'url',
+      'placeHolder':'Avatar',
+    }
+  ]
+  const buttonAdd=document.querySelectorAll('.update-pet-btm')
+  let dataPets= await getAllPets()
+  
+  buttonAdd.forEach(el=>{
+    el.addEventListener('click',(event)=>{
+      let filtro=dataPets.filter(el=>el.id==event.target.id)
+      dataInputs.forEach(el=>{
+        let tag=el.id
+        el['value']=filtro[0][tag]
+      })
+      modalPets('Editar Pet',dataInputs,event.target.id)
+    })
+  })
 }
 
-openAddPet();
-openEditPet();
+openAddPet()
+openEditPet()

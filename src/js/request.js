@@ -104,4 +104,45 @@ const updateUser = async (token, body) => {
   }
 }
 
-export { getAllPets, login, register, getUserData, deleteUser, updateUser };
+async function registerPet(data){
+  let token=JSON.parse(localStorage.getItem('user'))
+  try{
+    const request=await fetch(`${baseUrl}/pets`,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        Authorization:`Bearer ${token}`
+      },
+      body:JSON.stringify(data)
+    })
+    let dataJson=await request.json()
+    console.log(dataJson)
+    window.location.reload()
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+async function editPetProfile(data,id){
+  let token=JSON.parse(localStorage.getItem('user'))
+  try{
+    const request=await fetch(`${baseUrl}/pets/${id}`,{
+      method:'PATCH',
+      headers:{
+        'Content-Type':'application/json',
+        Authorization:`Bearer ${token}`
+      },
+      body:JSON.stringify(data)
+    })
+    let dataJson=await request.json()
+    window.location.reload()
+
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+
+export { getAllPets, login, register, getUserData, deleteUser, updateUser,registerPet,editPetProfile};
