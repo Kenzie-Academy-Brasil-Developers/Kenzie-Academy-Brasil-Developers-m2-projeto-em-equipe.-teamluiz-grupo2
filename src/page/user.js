@@ -8,6 +8,16 @@ const userEmail = document.querySelector(".user-email");
 const registerPetBtm = document.querySelector(".my-pets-ul");
 const userPets = document.querySelector(".my-pets-ul");
 
+function openMenu() {
+  const btmMenu = document.querySelector(".hamburger-lines");
+  const menu = document.querySelector(".menus");
+  if (menu) {
+    btmMenu.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  }
+}
+openMenu();
 // const userBirthday = document.querySelector(".user-birthday");
 userName.innerText = user.name;
 userEmail.innerText = user.email;
