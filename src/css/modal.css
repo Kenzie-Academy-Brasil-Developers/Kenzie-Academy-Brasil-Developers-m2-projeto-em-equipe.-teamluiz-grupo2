@@ -1,4 +1,3 @@
-<<<<<<< .merge_file_sW5XlM
 dialog{
     margin: 0;
     padding: 0;
@@ -318,12 +317,10 @@ dialog{
     #updateProfile{
         max-width: 240px;
     }
-    #updateProfile input, button{
+    #updateProfile input, button[type="submit"]{
         min-width: 240px;
     }
     #deleteProfile h2{
         font-size: var(--size2);
     }
 }
-=======
->>>>>>> .merge_file_kTaK7z

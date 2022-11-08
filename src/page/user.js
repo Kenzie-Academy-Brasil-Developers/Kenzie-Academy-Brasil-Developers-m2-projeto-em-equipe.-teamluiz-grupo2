@@ -1,5 +1,4 @@
-<<<<<<< .merge_file_p6F6nm
-import { modalPets } from "../js/modal.js";
+import { modalPets, modalDeleteUser, modalUpdateUser } from "../js/modal.js";
 import { getAllPets, getUserData} from "../js/request.js";
 
 const user = await getUserData();
@@ -170,5 +169,21 @@ async function openEditPet(){
 
 openAddPet()
 openEditPet()
-=======
->>>>>>> .merge_file_0IFC8o
+
+
+function deleteProfile() {
+  let btn = document.querySelector('#delete-account')
+  btn.addEventListener('click', () => {
+      modalDeleteUser()
+  })
+}
+function updateProfile() {
+  let btn = document.querySelector('#update-account')
+  btn.addEventListener('click', () => {
+      modalUpdateUser()
+  })
+  console.log(btn)
+}
+
+deleteProfile()
+updateProfile()
