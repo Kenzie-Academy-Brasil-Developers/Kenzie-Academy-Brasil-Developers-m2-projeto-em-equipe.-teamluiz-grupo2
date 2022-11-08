@@ -173,3 +173,133 @@ dialog{
     border-color: var(--brand1);
     border-radius: var(--radius1);
 }
+
+
+/* Lucas: modal update/delete profile */
+.background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.background .modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 520px;
+    min-height: 380px;
+    background-color: var(--white);
+    border-radius: var(--radius1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.background .modal .header{
+    position: relative;
+    background-color: var(--brand1);
+    height: 42px;
+    width: 100%;
+}
+.background .modal .header figure{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 9px;
+    right: 16px;
+}
+.background .modal .footer{
+    background-color: var(--brand1);
+    height: 12px;
+    width: 100%;
+}
+
+#updateProfile{
+    width: 100%;
+    min-height: 192px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+#updateProfile h2{
+    font-size: var(--size2);
+    font-weight: var(--weight7);
+    color: var(--brand1);
+    margin-bottom: 12px;
+}
+#updateProfile input{
+    width: 80%;
+    height: 27px;
+    border-radius: var(--radius1);
+    border: 1px solid var(--brand3);
+    color: var(--brand1);
+    font-size: var(--size6);
+    font-weight: var(--weight4);
+    outline: none;
+    padding-left: 10px;
+}
+#updateProfile input::-webkit-input-placeholder{
+    color: var(--brand3);
+}
+#updateProfile button{
+    width: 80%;
+    max-width: 240px;
+    height: 27px;
+    background-color: var(--brand1);
+    border-radius: var(--radius1);
+    border: 1px solid var(--brand1);
+    font-size: var(--size5);
+    color: var(--white);
+    font-weight: var(--weight6);
+}
+
+#deleteProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 402px;
+    height: 118px;
+}
+#deleteProfile h2{
+    font-size: var(--size4);
+    font-weight: var(--weight7);
+    color: var(--brand1);
+    /* margin-bottom: 12px; */
+}
+#deleteProfile button{
+    width: 80%;
+    max-width: 240px;
+    min-height: 27px;
+    border-radius: var(--radius1);
+}
+#deleteProfile .cancel{
+    background-color: var(--brand1);
+    color: var(--white);
+    font-size: var(--size5);
+    font-weight: var(--weight6);
+    border: 1px solid var(--brand1);
+}
+#deleteProfile .confirm{
+    background-color: var(--white);
+    color: var(--alert);
+    font-size: var(--size5);
+    font-weight: var(--weight6);
+    border: 1px solid var(--alert);
+}
+
+@media screen and (min-width: 900px) {
+    #updateProfile{
+        max-width: 240px;
+    }
+    #updateProfile input, button{
+        min-width: 240px;
+    }
+    #deleteProfile h2{
+        font-size: var(--size2);
+    }
+}

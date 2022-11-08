@@ -1,4 +1,4 @@
-import { login, register } from "./request.js";
+import { deleteUser, login, register, updateUser } from "./request.js";
 
 
 const modalLogin = () => {
@@ -11,7 +11,7 @@ const modalLogin = () => {
     const inputPassWord = document.createElement("input")
     const buttonLogin = document.createElement("button")
     const p = document.createElement("p")
- 
+
 
     modal.classList.add("modal")
     divContainer.classList.add("modal-container")
@@ -29,30 +29,30 @@ const modalLogin = () => {
     inputPassWord.required = "true"
     inputPassWord.id = "password"
     buttonLogin.innerText = "Entrar"
-    
+
     p.innerHTML = `Não tem cadastro? <a href=""> Clique aqui</a> para se cadastrar`
-    
-    form.append(h2,inputMail,inputPassWord,buttonLogin,p)
-    divContainer.append(buttonClose,form)
+
+    form.append(h2, inputMail, inputPassWord, buttonLogin, p)
+    divContainer.append(buttonClose, form)
     modal.appendChild(divContainer)
     const elemets = [...form.elements]
-    form.addEventListener("submit", async(event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault()
         const body = {}
 
         elemets.forEach((input) => {
-            if(input.tagName == "INPUT"){
-                body [input.id] = input.value
+            if (input.tagName == "INPUT") {
+                body[input.id] = input.value
             }
         })
         await login(body)
     })
-    buttonClose.addEventListener("click", ()=> {
+    buttonClose.addEventListener("click", () => {
         modal.close()
     })
 
     return modal
-    
+
 
 }
 const modalRegister = () => {
@@ -67,7 +67,7 @@ const modalRegister = () => {
     const inputAvatar = document.createElement("input")
     const buttonRegister = document.createElement("button")
     const p = document.createElement("p")
-    
+
 
     modal.classList.add("modal")
     divContainer.classList.add("modal-container")
@@ -93,34 +93,34 @@ const modalRegister = () => {
     inputAvatar.required = "true"
     inputAvatar.id = "avatar_url"
     buttonRegister.innerText = "Entrar"
-    
+
     p.innerHTML = `Já tem cadastro? <a href=""> Clique aqui</a> para logar`
 
-   
-    form.append(h2,inputMail,inputName,inputPassWord,inputAvatar,buttonRegister,p)
-    divContainer.append(buttonClose,form)
+
+    form.append(h2, inputMail, inputName, inputPassWord, inputAvatar, buttonRegister, p)
+    divContainer.append(buttonClose, form)
     modal.appendChild(divContainer)
 
     const elemets = [...form.elements]
-    form.addEventListener("submit", async(event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault()
         const body = {}
 
         elemets.forEach((input) => {
-            if(input.tagName == "INPUT"){
-                body [input.id] = input.value
+            if (input.tagName == "INPUT") {
+                body[input.id] = input.value
             }
         })
         await register(body)
     })
-    buttonClose.addEventListener("click", ()=> {
+    buttonClose.addEventListener("click", () => {
         modal.close()
     })
 
 
     return modal
 }
-export {modalLogin,modalRegister}
+export { modalLogin, modalRegister }
 
 /*
     <!-- <dialog class="modal" open>
@@ -137,103 +137,192 @@ export {modalLogin,modalRegister}
     </dialog> -->
 */
 
-function modalBase(titulo='',main='',footer=''){
-    let body=document.querySelector('body')
+function modalBase(titulo = '', main = '', footer = '') {
+    let body = document.querySelector('body')
     //criação dos elementos
-    let backModal=document.createElement('section')
-    let bodyModal=document.createElement('div')
-    let headerModal=document.createElement('div')
-    let titleModal=document.createElement('h2')
-    let divClose=document.createElement('div')
-    let closeModal=document.createElement('P')
-    let mainModal=document.createElement('div')
-    let footerModal=document.createElement('div')
+    let backModal = document.createElement('section')
+    let bodyModal = document.createElement('div')
+    let headerModal = document.createElement('div')
+    let titleModal = document.createElement('h2')
+    let divClose = document.createElement('div')
+    let closeModal = document.createElement('P')
+    let mainModal = document.createElement('div')
+    let footerModal = document.createElement('div')
 
     // ids e classes
-    backModal.id='modal'
-    bodyModal.classList='body'
-    headerModal.classList='header'
-    mainModal.classList='main'
-    footerModal.classList='footer'
+    backModal.id = 'modal'
+    bodyModal.classList = 'body'
+    headerModal.classList = 'header'
+    mainModal.classList = 'main'
+    footerModal.classList = 'footer'
 
     //textos
-    titleModal.innerText=`${titulo}`
-    closeModal.innerText='X'
+    titleModal.innerText = `${titulo}`
+    closeModal.innerText = 'X'
 
     //funções
-    divClose.addEventListener('click',()=>{
+    divClose.addEventListener('click', () => {
         backModal.remove()
     })
 
-    backModal.addEventListener('click',(event)=>{
+    backModal.addEventListener('click', (event) => {
         event.stopPropagation()
-        if(event.target.id=='modal'){
+        if (event.target.id == 'modal') {
             backModal.remove()
         }
     })
 
     //appends
     divClose.append(closeModal)
-    headerModal.append(titleModal,divClose)
+    headerModal.append(titleModal, divClose)
     mainModal.append(main)
     footerModal.append(footer)
-    bodyModal.append(headerModal,mainModal,footerModal)
-    backModal.append(bodyModal)    
+    bodyModal.append(headerModal, mainModal, footerModal)
+    backModal.append(bodyModal)
     body.append(backModal)
     return backModal
 }
 
-function modalPets(titulo,inputs=[]){
-    let mainCadastro=document.createElement('div')
-    let tituloForm=document.createElement('h2')
-    let form=document.createElement('form')
-    let buttonSubmit=document.createElement('button')
+function modalPets(titulo, inputs = []) {
+    let mainCadastro = document.createElement('div')
+    let tituloForm = document.createElement('h2')
+    let form = document.createElement('form')
+    let buttonSubmit = document.createElement('button')
 
-    buttonSubmit.innerText=titulo.split(' ')[0]
-    buttonSubmit.type='submit'
-    buttonSubmit.disabled=true
+    buttonSubmit.innerText = titulo.split(' ')[0]
+    buttonSubmit.type = 'submit'
+    buttonSubmit.disabled = true
 
     form.append(tituloForm)
-    tituloForm.innerText=titulo
-    inputs.forEach(el=>{
-        let input=document.createElement('input')
-        input.type=el.type
-        input.placeholder=el.placeHolder
-        input.id=el.nome
-        input.required=(el.required)
+    tituloForm.innerText = titulo
+    inputs.forEach(el => {
+        let input = document.createElement('input')
+        input.type = el.type
+        input.placeholder = el.placeHolder
+        input.id = el.nome
+        input.required = (el.required)
         form.append(input)
     })
 
-    let data={}
-    let formData=[...form.elements]
-    formData.forEach(el=>{
-        el.addEventListener('input',()=>{
-            buttonSubmit.disabled=true
-            formData.forEach(el=>{
-                if(el.value!=''){
-                    buttonSubmit.disabled=false
+    let data = {}
+    let formData = [...form.elements]
+    formData.forEach(el => {
+        el.addEventListener('input', () => {
+            buttonSubmit.disabled = true
+            formData.forEach(el => {
+                if (el.value != '') {
+                    buttonSubmit.disabled = false
                 }
             })
         })
     })
 
-    form.addEventListener('submit',(event)=>{
+    form.addEventListener('submit', (event) => {
         event.preventDefault()
-        formData.forEach(el=>{
-            if(el.tagName=='INPUT' && el.value!=''){
-                data[el.id]=el.value
+        formData.forEach(el => {
+            if (el.tagName == 'INPUT' && el.value != '') {
+                data[el.id] = el.value
             }
         })
-        let backModal=document.querySelector('#modal')
+        let backModal = document.querySelector('#modal')
         backModal.remove()
         form.reset()
         return (data)
     })
-    
+
     form.append(buttonSubmit)
     mainCadastro.append(form)
-    modalBase('',mainCadastro)
+    modalBase('', mainCadastro)
 }
 
-export{modalPets}
+export { modalPets }
 
+
+function modalDeleteUser() {
+    //Criando elementos
+    let deleteProfile = document.createElement('div')
+    let title = document.createElement('h2')
+    let btnCancel = document.createElement('button')
+    let btnConfirm = document.createElement('button')
+
+    //Atribuindo classes e IDs
+    deleteProfile.id = "deleteProfile"
+    btnCancel.classList = "cancel"
+    btnConfirm.classList = "confirm"
+
+    //Atibuindo valores
+    title.innerText = "Deseja mesmo deletar sua conta?"
+    btnCancel.innerText = "Não desejo deletar minha conta"
+    btnConfirm.innerText = "Quero deletar minha conta"
+
+    //Eventos
+    btnCancel.addEventListener('click', (event) => {
+        let bgmodal = document.querySelector('.modal-bg')
+        bgmodal.remove()
+    })
+    btnConfirm.addEventListener('click', async (event) => {
+        //pega token
+        // let user = getLocalStorage()
+        await deleteUser(user.token)
+    })
+
+    //Hierarquia
+    deleteProfile.append(title, btnCancel, btnConfirm)
+
+
+    //Retornando
+    return deleteProfile
+}
+function modalUpdateUser() {
+    //Criando elementos
+    let updateProfile = document.createElement('form')
+    let title = document.createElement('h2')
+    let inputUsername = document.createElement('input')
+    let inputEmail = document.createElement('input')
+    let inputAvatar = document.createElement('input')
+    let btnUpdate = document.createElement('button')
+
+    //Atribuindo Classes e IDs
+    updateProfile.id = "updateProfile"
+    
+    inputUsername.id = "name"
+    inputUsername.type = "text"
+    inputUsername.placeholder = "Nome"
+    inputUsername.required = ""
+    
+    inputEmail.id = "email"
+    inputEmail.type = "email"
+    inputEmail.placeholder = "E-mail"
+    inputEmail.required = ""
+    
+    inputAvatar.id = "avatar_url"
+    inputAvatar.type = "text"
+    inputAvatar.placeholder = "Avatar"
+    inputAvatar.required = ""
+
+    btnUpdate.type = "submit"
+
+    //Atribuindo valores
+    title.innerText = "Atualizar perfil"
+    btnUpdate.innerText = "Atualizar"
+    
+    //Eventos
+    updateProfile.addEventListener('submit', async () => {
+        let inputs = [...updateProfile.elements]
+        let body = {}
+        //localStorage
+        // let user = getLocalStorage()
+        inputs.forEach(input => {
+            if(input.tagName == 'INPUT' && input.value != ""){
+                body[input.id] = input.value
+            }
+        })
+        await updateUser(user.token, body)
+    })
+
+    //Hierarquia
+    updateProfile.append(title, inputUsername, inputEmail, inputAvatar)
+
+    //Retornando
+    return updateProfile
+}
