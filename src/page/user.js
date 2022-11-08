@@ -119,3 +119,20 @@ function openEditPet() {
 
 openAddPet();
 openEditPet();
+
+function deleteProfile() {
+  let btn = document.querySelector('#delete-account')
+  btn.addEventListener('click', () => {
+      modalDeleteUser()
+  })
+}
+function updateProfile() {
+  let btn = document.querySelector('#update-account')
+  btn.addEventListener('click', () => {
+      modalUpdateUser()
+  })
+  console.log(btn)
+}
+
+deleteProfile()
+updateProfile()
