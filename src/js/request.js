@@ -95,4 +95,5 @@ const updateUser = async (token, body) => {
 
 
 
+
 export { login, register, getUserData, deleteUser, updateUser };
