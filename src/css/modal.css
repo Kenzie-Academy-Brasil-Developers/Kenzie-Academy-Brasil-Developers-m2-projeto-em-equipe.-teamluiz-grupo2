@@ -27,6 +27,7 @@ dialog {
   z-index: 1;
 }
 .modal-container {
+  background-color: var(--grey1);
   width: 520px;
   height: 400px;
   border-radius: var(--radius1);
@@ -88,7 +89,10 @@ dialog {
   font-weight: var(--weight4);
   color: var(--grey1);
 }
-.purple {
+.modal-body > p span {
+  color: var(--grey3);
+}
+.modal-body > p > .purple {
   color: var(--brand1);
   cursor: pointer;
 }
