@@ -89,9 +89,10 @@ const updateUser = async (token, body) => {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "PATCH",
       headers: {
-        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(body)
     });
 
     if (request.ok) {

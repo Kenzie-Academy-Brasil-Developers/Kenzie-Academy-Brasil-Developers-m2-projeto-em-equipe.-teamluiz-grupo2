@@ -250,7 +250,12 @@ function modalUpdateUser() {
                 body[input.id] = input.value
             }
         })
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
         await updateUser(user.token, body)
+        location.reload()
     })
 
     //Hierarquia
