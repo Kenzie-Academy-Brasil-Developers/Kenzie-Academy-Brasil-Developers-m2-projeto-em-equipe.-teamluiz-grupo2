@@ -85,6 +85,7 @@ function createPetCard(obj) {
   let divButton = document.createElement("div");
   let buttonAdopt = document.createElement("button");
   liPetCard.dataset.aos = "zoom-in-up";
+  liPetCard.dataset.aosMirror = "true";
   liPetCard.className = "pet-card";
   divPetImg.className = "pet-img";
   divPetImg.style.backgroundImage = `url(${obj.avatar_url})`;
