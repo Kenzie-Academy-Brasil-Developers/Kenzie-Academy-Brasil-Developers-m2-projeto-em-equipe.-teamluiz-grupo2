@@ -1,6 +1,35 @@
 import { getAllPets } from "./request.js"
 import { modalLogin,modalRegister } from "./modal.js"
 
+
+function menuDropdown () {
+    const header = document.querySelector('.header')
+    const navButtons = document.querySelector('.nav-buttons')
+    const imgMenuDropdown = document.querySelector('.menu-dropdown')
+
+    imgMenuDropdown.addEventListener('click', () => {
+        imgMenuDropdown.remove()
+
+        const imgExit = document.createElement('img')
+        imgExit.src = "./src/img/cancel.png"
+        imgExit.alt = "Sair do menu"
+        imgExit.className = 'exit'
+
+        header.appendChild(imgExit)
+
+        navButtons.style.display = 'flex'
+
+        
+        imgExit.addEventListener('click', () => {
+            imgExit.remove()
+            header.appendChild(imgMenuDropdown)
+            navButtons.style.display = 'none'
+        })
+        
+    })
+}
+menuDropdown ()
+
 const ulPetsList = document.querySelector('.pets-list')
 const allPets = (await getAllPets()).filter((pet) => pet.available_for_adoption)
 
