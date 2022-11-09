@@ -202,7 +202,7 @@ function modalDeleteUser() {
     title.innerText = "Deseja mesmo deletar sua conta?"
     btnCancel.innerText = "Não desejo deletar minha conta"
     btnConfirm.innerText = "Quero deletar minha conta"
-    closeIcon.src = "./src/img/Vector.png"
+    closeIcon.src = "../img/Vector.png"
     closeIcon.alt = "Botão de fechar modal"
 
     //Eventos
@@ -213,10 +213,8 @@ function modalDeleteUser() {
         }
     })
     btnConfirm.addEventListener('click', async (event) => {
-        //pega token
-        // let user = getLocalStorage()
-        // await deleteUser(user.token)
-        console.log("token")
+        let user = JSON.parse(localStorage.getItem('user'))
+        await deleteUser(user.token)
     })
 
     //Hierarquia
@@ -276,7 +274,7 @@ function modalUpdateUser() {
     //Atribuindo valores
     title.innerText = "Atualizar perfil"
     btnUpdate.innerText = "Atualizar"
-    closeIcon.src = "./src/img/Vector.png"
+    closeIcon.src = "../img/Vector.png"
     closeIcon.alt = "Botão de fechar modal"
 
 
@@ -289,6 +287,7 @@ function modalUpdateUser() {
     })
     updateProfile.addEventListener('submit', async (event) => {
         event.preventDefault()
+        let user = JSON.parse(localStorage.getItem('user'))
         let inputs = [...updateProfile.elements]
         let body = {}
         inputs.forEach(input => {
@@ -297,7 +296,7 @@ function modalUpdateUser() {
             }
         })
         console.log(body)
-        // await updateUser(user.token, body)
+        await updateUser(user.token, body)
     })
 
     //Hierarquia
@@ -309,7 +308,7 @@ function modalUpdateUser() {
 
     body.append(background)
 
-    console.log(updateProfile)
+    // console.log(updateProfile)
 }
 
 function modalBase(titulo='',main='',footer=''){
