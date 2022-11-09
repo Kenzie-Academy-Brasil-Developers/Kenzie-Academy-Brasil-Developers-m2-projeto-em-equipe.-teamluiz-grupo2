@@ -1,362 +1,361 @@
-dialog{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+dialog {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 @keyframes animateModal {
-    0% {
-        transform: translateY(-50%);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
 
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.modal::backdrop{
-    background-color: rgba(27, 28, 30, 0.65);
-    z-index: 1;
+.modal::backdrop {
+  background-color: rgba(27, 28, 30, 0.65);
+  z-index: 1;
 }
-.modal{
-    animation: animateModal 1s;
-    border: none;
-    margin: auto;
-    border-radius: var(--radius1);
-    position: fixed;
-    z-index: 1;
+.modal {
+  animation: animateModal 1s;
+  border: none;
+  margin: auto;
+  border-radius: var(--radius1);
+  position: fixed;
+  z-index: 1;
 }
-.modal-container{
-    width: 520px;
-    height: 400px;
-    border-radius: var(--radius1);
-    display: flex;
-    flex-direction: column;
-    border-top: 40px solid var(--brand1);
-    border-bottom: 15px solid var(--brand1);
-    position: relative;
-    z-index: 1;
+.modal-container {
+  width: 520px;
+  height: 400px;
+  border-radius: var(--radius1);
+  display: flex;
+  flex-direction: column;
+  border-top: 40px solid var(--brand1);
+  border-bottom: 15px solid var(--brand1);
+  position: relative;
+  z-index: 1;
 }
 
-.close-modal{
-    background-image: url(/src/img/Vector.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    width: var(--size2);
-    height: var(--size2);
-    background-color: transparent;
-    padding: 20px;
-    position: absolute;
-    top: -39px;
-    right: 0;
+.close-modal {
+  background-image: url(/src/img/Vector.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: var(--size2);
+  height: var(--size2);
+  background-color: transparent;
+  padding: 20px;
+  position: absolute;
+  top: -39px;
+  right: 0;
 }
-.modal-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    gap: 12px;
-    height: 85%;
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  height: 85%;
 }
 .modal-body h2 {
-    margin-top: 30px;
-    margin-bottom: 22px;
-    font-size: var(--size2);
-    color: var(--brand1);
-    font-weight: var(--weight7);
+  margin-top: 30px;
+  margin-bottom: 22px;
+  font-size: var(--size2);
+  color: var(--brand1);
+  font-weight: var(--weight7);
 }
-.modal-body input{
-    width: 240px;
-    height: 27px;
-    border-radius: var(--radius1);
-    border: 1px solid var(--brand1);
-    color: var(--brand1);
-    padding-left: 10px;
+.modal-body input {
+  width: 240px;
+  height: 27px;
+  border-radius: var(--radius1);
+  border: 1px solid var(--brand1);
+  color: var(--brand1);
+  padding-left: 10px;
 }
-.btn-login{
-    width: 240px;
-    height: 27px;
-    border-radius: var(--radius1);
-    background-color: var(--brand1);
-    color: var(--white);
-
+.btn-login {
+  width: 240px;
+  height: 27px;
+  border-radius: var(--radius1);
+  background-color: var(--brand1);
+  color: var(--white);
 }
 .modal-body p {
-    display: flex;
-    gap: 4px;
-    font-size: 8px;
-    line-height: 11px;
-    font-weight: var(--weight4);
-    color: var(--grey1);
+  display: flex;
+  gap: 4px;
+  font-size: 11.5px;
+  line-height: 11px;
+  font-weight: var(--weight4);
+  color: var(--grey1);
 }
 .purple {
-    color: var(--brand1);
-    cursor: pointer;
+  color: var(--brand1);
+  cursor: pointer;
 }
-.red{
-    
-    color: red;
+.red {
+  color: red;
 }
-.success{
-    height: 24px;
-    color: green;
-    width: 45%;
-    padding: 20px;
+.success {
+  height: 24px;
+  color: green;
+  width: 45%;
+  padding: 20px;
 }
 
-@media(max-width:730px){
-    .modal{
-        width: 80%;
-        min-width: 80%;
-    }
-    .modal-container{
-        width: 100%;
-        padding: 24px;
-        height: 100%;
-    }
-    .modal-body input{
-        width: 80%;
-    }
-    .btn-login{
-        width: 80%;
-    }
+@media (max-width: 730px) {
+  .modal {
+    width: 80%;
+    min-width: 80%;
+  }
+  .modal-container {
+    width: 100%;
+    padding: 24px;
+    height: 100%;
+  }
+  .modal-body input {
+    width: 80%;
+  }
+  .btn-login {
+    width: 80%;
+  }
 }
-@media(max-width:400px){
-    .modal-body input{
-        width: 100%;
-    }
+@media (max-width: 400px) {
+  .modal-body input {
+    width: 100%;
+  }
 }
 
 /* Matheus modal */
 
-#modal{
-    background-color: rgba(27, 28, 30, 0.65);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+#modal {
+  background-color: rgba(27, 28, 30, 0.65);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-#modal .body{
-    background-color: var(--white);
-    border-radius: 15px;
-    max-height: 50%;
-    max-width: 80%;
+#modal .body {
+  background-color: var(--white);
+  border-radius: 15px;
+  max-height: 50%;
+  max-width: 80%;
 }
 
-
-#modal .header{
-    padding: 10px  var(--radius1);
-    display: flex;
-    width: 100%;
-    height: fit-content;
-    border-top-left-radius: var(--radius1);
-    border-top-right-radius: var(--radius1);
-    justify-content: space-between;
-    background-color: var(--brand1);
+#modal .header {
+  padding: 10px var(--radius1);
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  border-top-left-radius: var(--radius1);
+  border-top-right-radius: var(--radius1);
+  justify-content: space-between;
+  background-color: var(--brand1);
 }
 
-#modal .header div{
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
-    width: 20px;
-    border-radius: var(--radius3);
-    border: 1px solid;
+#modal .header div {
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: var(--radius3);
+  border: 1px solid;
 }
 
-#modal .main{
-    padding: 15px;
+#modal .main {
+  padding: 15px;
 }
 
-#modal .main form{
-    display: flex;
-    flex-direction: column;
-    gap: var(--radius1);
-    align-items: center;
-    justify-content: center;
+#modal .main form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--radius1);
+  align-items: center;
+  justify-content: center;
 }
 
-#modal .main h2{
-    color: var(--brand1);
-    font-size: var(--size1);
+#modal .main h2 {
+  color: var(--brand1);
+  font-size: var(--size1);
 }
 
-#modal .main form input,select{
-    width: 100%;
-    display: flex;
-    border-radius:15px ;
-    gap:15px;
-    padding: 0px 15px;
-    border:2px solid;
-    border-color: var(--brand1);
+#modal .main form input,
+select {
+  width: 100%;
+  display: flex;
+  border-radius: 15px;
+  gap: 15px;
+  padding: 0px 15px;
+  border: 2px solid;
+  border-color: var(--brand1);
 }
 
-#modal .main form input,select:focus{
-    outline-color: var(--brand3);
+#modal .main form input,
+select:focus {
+  outline-color: var(--brand3);
 }
 
-select option{
-    background-color: var(--brand1);
-    color: white;
+select option {
+  background-color: var(--brand1);
+  color: white;
 }
 
-#modal button[type='submit']{
-    color: var(--white);
-    background-color: var(--brand1);
-    border: 2px solid;
-    border-color: var(--brand1);
-    border-radius: var(--radius1);
-    width: 100%;
+#modal button[type="submit"] {
+  color: var(--white);
+  background-color: var(--brand1);
+  border: 2px solid;
+  border-color: var(--brand1);
+  border-radius: var(--radius1);
+  width: 100%;
 }
 
-#modal button[type='submit']:disabled{
-    background-color: var(--grey1); 
-    color: var(--white);
-    border-color: var(--grey-1);
+#modal button[type="submit"]:disabled {
+  background-color: var(--grey1);
+  color: var(--white);
+  border-color: var(--grey-1);
 }
 
-#modal button[type='submit']:enabled:hover{
-    background-color: var(--white);
-    color: var(--brand1);
-    border-color: var(--brand1);
-    border-radius: var(--radius1);
+#modal button[type="submit"]:enabled:hover {
+  background-color: var(--white);
+  color: var(--brand1);
+  border-color: var(--brand1);
+  border-radius: var(--radius1);
 }
-
 
 /* Lucas: modal update/delete profile */
-.background{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.background .modal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 520px;
-    min-height: 380px;
-    background-color: var(--white);
-    border-radius: var(--radius1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+.background .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 520px;
+  min-height: 380px;
+  background-color: var(--white);
+  border-radius: var(--radius1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
-.background .modal .header{
-    position: relative;
-    background-color: var(--brand1);
-    height: 42px;
-    width: 100%;
+.background .modal .header {
+  position: relative;
+  background-color: var(--brand1);
+  height: 42px;
+  width: 100%;
 }
-.background .modal .header figure{
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 9px;
-    right: 16px;
-    cursor: pointer;
+.background .modal .header figure {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 9px;
+  right: 16px;
+  cursor: pointer;
 }
-.background .modal .footer{
-    background-color: var(--brand1);
-    height: 12px;
-    width: 100%;
-}
-
-#updateProfile{
-    width: 100%;
-    min-height: 192px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-}
-#updateProfile h2{
-    font-size: var(--size2);
-    font-weight: var(--weight7);
-    color: var(--brand1);
-    margin-bottom: 12px;
-}
-#updateProfile input{
-    width: 80%;
-    height: 27px;
-    border-radius: var(--radius1);
-    border: 1px solid var(--brand3);
-    color: var(--brand1);
-    font-size: var(--size6);
-    font-weight: var(--weight4);
-    outline: none;
-    padding-left: 10px;
-}
-#updateProfile input::-webkit-input-placeholder{
-    color: var(--brand3);
-}
-#updateProfile button{
-    width: 80%;
-    max-width: 240px;
-    height: 27px;
-    background-color: var(--brand1);
-    border-radius: var(--radius1);
-    border: 1px solid var(--brand1);
-    font-size: var(--size5);
-    color: var(--white);
-    font-weight: var(--weight6);
+.background .modal .footer {
+  background-color: var(--brand1);
+  height: 12px;
+  width: 100%;
 }
 
-#deleteProfile{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-    max-width: 402px;
-    height: 118px;
+#updateProfile {
+  width: 100%;
+  min-height: 192px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
-#deleteProfile h2{
-    font-size: var(--size4);
-    font-weight: var(--weight7);
-    color: var(--brand1);
-    /* margin-bottom: 12px; */
+#updateProfile h2 {
+  font-size: var(--size2);
+  font-weight: var(--weight7);
+  color: var(--brand1);
+  margin-bottom: 12px;
 }
-#deleteProfile button{
-    width: 80%;
-    max-width: 240px;
-    min-height: 27px;
-    border-radius: var(--radius1);
+#updateProfile input {
+  width: 80%;
+  height: 27px;
+  border-radius: var(--radius1);
+  border: 1px solid var(--brand3);
+  color: var(--brand1);
+  font-size: var(--size6);
+  font-weight: var(--weight4);
+  outline: none;
+  padding-left: 10px;
 }
-#deleteProfile .cancel{
-    background-color: var(--brand1);
-    color: var(--white);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    border: 1px solid var(--brand1);
+#updateProfile input::-webkit-input-placeholder {
+  color: var(--brand3);
 }
-#deleteProfile .confirm{
-    background-color: var(--white);
-    color: var(--alert);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    border: 1px solid var(--alert);
+#updateProfile button {
+  width: 80%;
+  max-width: 240px;
+  height: 27px;
+  background-color: var(--brand1);
+  border-radius: var(--radius1);
+  border: 1px solid var(--brand1);
+  font-size: var(--size5);
+  color: var(--white);
+  font-weight: var(--weight6);
+}
+
+#deleteProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 402px;
+  height: 118px;
+}
+#deleteProfile h2 {
+  font-size: var(--size4);
+  font-weight: var(--weight7);
+  color: var(--brand1);
+  /* margin-bottom: 12px; */
+}
+#deleteProfile button {
+  width: 80%;
+  max-width: 240px;
+  min-height: 27px;
+  border-radius: var(--radius1);
+}
+#deleteProfile .cancel {
+  background-color: var(--brand1);
+  color: var(--white);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  border: 1px solid var(--brand1);
+}
+#deleteProfile .confirm {
+  background-color: var(--white);
+  color: var(--alert);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  border: 1px solid var(--alert);
 }
 
 @media screen and (min-width: 900px) {
-    #updateProfile{
-        max-width: 240px;
-    }
-    #updateProfile input, button[type="submit"]{
-        min-width: 240px;
-    }
-    #deleteProfile h2{
-        font-size: var(--size2);
-    }
+  #updateProfile {
+    max-width: 240px;
+  }
+  #updateProfile input,
+  button[type="submit"] {
+    min-width: 240px;
+  }
+  #deleteProfile h2 {
+    font-size: var(--size2);
+  }
 }
