@@ -1,3 +1,9 @@
+.nav-buttons{
+    display: flex;
+    flex-wrap: nowrap;
+    gap:12px
+}
+
 .filter {
     margin-top: 70px;
     display: flex;
@@ -27,7 +33,8 @@
 }
 
 .filter select option{
-    color: var(--brand1);
+    background-color: var(--brand1);
+    color: white;
 }
 
 .filter select .null{

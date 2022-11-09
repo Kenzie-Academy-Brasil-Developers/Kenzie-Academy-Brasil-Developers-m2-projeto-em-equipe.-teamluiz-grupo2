@@ -189,7 +189,8 @@ dialog{
     font-size: var(--size1);
 }
 
-#modal .main form input{
+#modal .main form input,select{
+    width: 100%;
     display: flex;
     border-radius:15px ;
     gap:15px;
@@ -198,9 +199,13 @@ dialog{
     border-color: var(--brand1);
 }
 
-#modal .main form input::selection{
-    border-color: red;
-    border: 2px solid;
+#modal .main form input,select:focus{
+    outline-color: var(--brand3);
+}
+
+select option{
+    background-color: var(--brand1);
+    color: white;
 }
 
 #modal button[type='submit']{
