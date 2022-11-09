@@ -1,44 +1,76 @@
-@media (min-width: 550px) {
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 60px;
-    box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.7);
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 1rem;
+  box-shadow: 0px 1px 5px -2px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.header h1 {
+  font-weight: var(--weight7);
+  font-size: var(--size1);
+  color: var(--brand1);
+}
+
+.header img{
+  cursor: pointer;
+}
+
+.header .nav-buttons {
+  background-color: var(--white);
+  display: none;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+}
+
+.header .nav-buttons button {
+  background-color: var(--white);
+  font-weight: var(--weight6);
+  font-size: var(--size4);
+  color: var(--brand1);
+  border: 1px solid var(--brand1);
+  border-radius: var(--radius1);
+  padding: 10px 40px;
+}
+
+.header .nav-buttons button:hover {
+  background-color: #b58cf238;
+}
+
+.header .nav-buttons .emphasis-button {
+  background-color: var(--brand1);
+  color: var(--white);
+  border: none;
+}
+
+.header .nav-buttons .emphasis-button:hover {
+  background-color: var(--brand2);
+}
+
+
+
+@media (min-width: 603px) {
+  .header{
+    padding: 15px 60px;
   }
 
-  .header h1 {
-    font-weight: var(--weight7);
-    font-size: var(--size1);
-    color: var(--brand1);
+  .header img{
+    display: none;
   }
-
-  .header div {
+  
+  .header .nav-buttons {
     display: flex;
     gap: 12px;
+    position: static;
+    width: unset;
   }
 
-  .header div button {
-    background-color: var(--white);
-    font-weight: var(--weight6);
-    font-size: var(--size4);
-    color: var(--brand1);
-    border: 1px solid var(--brand1);
-    border-radius: var(--radius1);
+  .header .nav-buttons button{
     padding: 5px 20px;
-  }
-
-  .header div button:hover {
-    background-color: #b58cf238;
-  }
-
-  .header div .emphasis-button {
-    background-color: var(--brand1);
-    color: var(--white);
-    border: none;
-  }
-
-  .header div .emphasis-button:hover {
-    background-color: var(--brand2);
   }
 }
