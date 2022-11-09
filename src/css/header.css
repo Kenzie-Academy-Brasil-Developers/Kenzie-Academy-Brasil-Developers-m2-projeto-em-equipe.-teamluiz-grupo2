@@ -57,7 +57,7 @@
     padding: 15px 60px;
   }
 
-  .header img {
+  .header > img {
     display: none;
   }
 
