@@ -224,7 +224,12 @@ section {
     gap: 12px;
   }
 }
-
+@media (min-width: 500px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
 @keyframes appear {
   0% {
     transform: translateY(-100px);
