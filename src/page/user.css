@@ -1,216 +1,230 @@
 section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .user-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-section {
+  width: 100%;
+  max-width: 1200px;
+  height: 223px;
+  background-color: var(--brand1);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.user-section img {
+  width: 220px;
+  height: 220px;
+  border: 5px solid var(--brand1);
+  border-radius: 50%;
+  transform: translateY(110px);
+}
+.user-infos {
+  margin-top: 158px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.user-infos h2 {
+  font-size: var(--size2);
+  color: var(--brand1);
+  font-weight: var(--weight7);
+}
+.p-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 35px;
+  color: var(--brand1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+.p-container > p > span {
+  color: var(--grey1);
+}
+.btm-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 31px;
+}
+#update-account {
+  color: var(--white);
+  background-color: var(--brand2);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+}
+#delete-account {
+  color: var(--alert);
+  background-color: var(--white);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border: 1px solid var(--alert);
+  border-radius: 16px;
+}
+.pet-section {
+  align-items: flex-start;
+}
+.register-pet {
+  margin-top: 96px;
+  margin-bottom: 42px;
+  color: var(--white);
+  background-color: var(--green);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+}
+
+.my-pets-ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 64px;
+  margin-bottom: 16px;
+}
+.my-pets-ul > li {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.my-pets-ul > li > img {
+  width: 100%;
+  height: 100%;
+  max-width: 211px;
+  max-height: 281px;
+}
+.my-pets-ul p {
+  color: var(--brand1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+.my-pets-ul span {
+  color: var(--grey1);
+  font-size: var(--size4);
+  font-weight: var(--weight6);
+}
+
+.update-pet-btm {
+  color: var(--white);
+  background-color: var(--brand2);
+  font-size: var(--size5);
+  font-weight: var(--weight6);
+  padding: 4px 16px 4px 16px;
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.header .container h1 {
+  font-weight: var(--weight7);
+  font-size: var(--size1);
+  color: var(--brand1);
+}
+.header .container .hamburger-lines {
+  height: 26px;
+  width: 32px;
+  z-index: 2;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(../img/hamburger.png);
+  background-position: center;
+}
+.header .container .cancel-lines {
+  background-image: url(../img/cancel.png);
+}
+
+.header .container div {
+  display: flex;
+  gap: 12px;
+}
+.header .container .show {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  top: 52px;
+  left: 0;
+  border: 1px solid var(--brand1);
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  z-index: 1;
+  animation: appear 0.2s ease-in-out;
+}
+.header .container .show button {
+  height: 50px;
+}
+.header div button {
+  background-color: var(--white);
+  font-weight: var(--weight6);
+  font-size: var(--size4);
+  color: var(--brand1);
+  border: 1px solid var(--brand1);
+  border-radius: var(--radius1);
+  padding: 5px 20px;
+}
+
+.header div button:hover {
+  background-color: #b58cf238;
+}
+
+.header div .emphasis-button {
+  background-color: var(--brand1);
+  color: var(--white);
+  border: none;
+}
+
+.header div .emphasis-button:hover {
+  background-color: var(--brand2);
+}
+@media (max-width: 500px) {
+  .container {
     width: 100%;
-    max-width: 1200px;
-    height: 223px;
-    background-color: var(--brand1);
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  .user-section img {
-    width: 220px;
-    height: 220px;
-    border: 5px solid var(--white);
-    border-radius: 50%;
-    transform: translateY(103px);
-  }
-  .user-infos {
-    margin-top: 158px;
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .user-infos h2 {
-    font-size: var(--size2);
-    color: var(--brand1);
-    font-weight: var(--weight7);
-  }
-  .p-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 35px;
-    color: var(--brand1);
-    font-size: var(--size4);
-    font-weight: var(--weight6);
-  }
-  .p-container > p > span {
-    color: var(--grey1);
-  }
-  .btm-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 31px;
-  }
-  #update-account {
-    color: var(--white);
-    background-color: var(--brand2);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    padding: 4px 16px 4px 16px;
-    border-radius: 16px;
-  }
-  #delete-account {
-    color: var(--alert);
-    background-color: var(--white);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    padding: 4px 16px 4px 16px;
-    border: 1px solid var(--alert);
-    border-radius: 16px;
-  }
-  .pet-section {
-    align-items: flex-start;
-  }
-  .register-pet {
-    margin-top: 96px;
-    margin-bottom: 42px;
-    color: var(--white);
-    background-color: var(--green);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    padding: 4px 16px 4px 16px;
-    border-radius: 16px;
-  }
-  
-  .my-pets-ul {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 64px;
-    margin-bottom: 16px;
-  }
-  .my-pets-ul > li {
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
-  .my-pets-ul > li > img {
-    width: 100%;
-    height: 100%;
-    max-width: 211px;
-    max-height: 281px;
-  }
-  .my-pets-ul p {
-    color: var(--brand1);
-    font-size: var(--size4);
-    font-weight: var(--weight6);
-  }
-  .my-pets-ul span {
-    color: var(--grey1);
-    font-size: var(--size4);
-    font-weight: var(--weight6);
-  }
-  
-  .update-pet-btm {
-    color: var(--white);
-    background-color: var(--brand2);
-    font-size: var(--size5);
-    font-weight: var(--weight6);
-    padding: 4px 16px 4px 16px;
-    border-radius: 16px;
-    margin-top: 16px;
-  }
-  
-  .header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
-  }
-  
-  .header .container h1 {
-    font-weight: var(--weight7);
-    font-size: var(--size1);
-    color: var(--brand1);
   }
   .header .container .hamburger-lines {
-    height: 26px;
-    width: 32px;
-    z-index: 2;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    background-image: url(../img/hamburger.png);
-    background-position: center;
-  }
-  .header .container .cancel-lines {
-    background-image: url(../img/cancel.png);
-  }
-  
-  .header .container div {
     display: flex;
+    opacity: 1;
+  }
+  .header .container div {
+    display: none;
+    opacity: 0;
     gap: 12px;
   }
-  .header .container .show {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    height: 80px;
-    top: 52px;
-    left: 0;
-    border: 1px solid var(--brand1);
-  
-    z-index: 100;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-100px);
   }
-  .header .container .show button {
-    height: 50px;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  .header div button {
-    background-color: var(--white);
-    font-weight: var(--weight6);
-    font-size: var(--size4);
-    color: var(--brand1);
-    border: 1px solid var(--brand1);
-    border-radius: var(--radius1);
-    padding: 5px 20px;
-  }
-  
-  .header div button:hover {
-    background-color: #b58cf238;
-  }
-  
-  .header div .emphasis-button {
-    background-color: var(--brand1);
-    color: var(--white);
-    border: none;
-  }
-  
-  .header div .emphasis-button:hover {
-    background-color: var(--brand2);
-  }
-  @media (max-width: 500px) {
-    .container {
-      width: 100%;
-    }
-    .header .container .hamburger-lines {
-      display: flex;
-    }
-    .header .container div {
-      display: none;
-      gap: 12px;
-    }
-  }
+}
