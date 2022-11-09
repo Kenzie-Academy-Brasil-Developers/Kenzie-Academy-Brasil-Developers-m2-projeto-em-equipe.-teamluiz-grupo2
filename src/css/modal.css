@@ -228,6 +228,7 @@ dialog{
     height: 24px;
     top: 9px;
     right: 16px;
+    cursor: pointer;
 }
 .background .modal .footer{
     background-color: var(--brand1);
