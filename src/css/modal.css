@@ -228,6 +228,7 @@ dialog{
     height: 24px;
     top: 9px;
     right: 16px;
+    cursor: pointer;
 }
 .background .modal .footer{
     background-color: var(--brand1);
@@ -317,7 +318,7 @@ dialog{
     #updateProfile{
         max-width: 240px;
     }
-    #updateProfile input, button{
+    #updateProfile input, button[type="submit"]{
         min-width: 240px;
     }
     #deleteProfile h2{

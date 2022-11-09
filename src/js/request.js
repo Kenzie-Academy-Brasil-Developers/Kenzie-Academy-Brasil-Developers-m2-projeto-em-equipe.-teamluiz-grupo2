@@ -79,7 +79,9 @@ const deleteUser = async (token) => {
     });
 
     if (request.ok) {
-      console.log("Profile deleted!");
+      console.log("Profile deleted!")
+      localStorage.removeItem("user")
+      window.location.assign('../../index.html')
     }
   } catch (error) {}
 };
@@ -96,7 +98,9 @@ const updateUser = async (token, body) => {
     });
 
     if (request.ok) {
-      console.log("Updated profile!");
+      let response = await request.json()
+      console.log("Updated profile! Please, login again!");
+      return response
     }
   } catch (error) {
     
