@@ -4,7 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kenzie Pets</title>
+    <link rel="icon" href="./src/img/favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="./src/css/globalStyles.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/home.css">
+    <link rel="stylesheet" href="./src/css/homeDesktop.css">
+    <link rel="stylesheet" href="./src/css/modal.css">
+    
+    <title>Kenzie Adopt</title>
   </head>
-  <body></body>
+
+  <body>
+    <header class="header">
+      <h1>KenziePets</h1>
+      <img class='menu-dropdown' src="./src/img/hamburger.png" alt="Abrir menu">
+      <div class="nav-buttons">
+        <button id="registerButton">Cadastro</button>
+        <button id="loginButton" class="emphasis-button">Login</button>
+        <span class="material-symbols-outlined mode"></span>
+      </div>
+    </header>
+
+    <main>
+      <div class="container filter">
+        <select class="default">
+          <option class="null" value="null">Espécie</option>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Gato">Gato</option>
+          <option value="Aves">Ave</option>
+          <option value="Repteis">Réptil</option>
+          <option value="Outros">Outros</option>
+        </select>
+        <button>Buscar</button>
+      </div>
+
+      <div class="container container-list">
+        <ul class="pets-list"></ul>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>KenziePets | Todos os Direitos Reservados</p>
+    </footer>
+
+    <!-- <div class="background modal-bg">
+        <div class="modal">
+          <div class="header">
+            <figure class="close">
+              <img src="./src/img/Vector.png" alt="">
+            </figure>
+          </div>
+
+          <form id="updateProfile">
+            <h2>Atualizar perfil</h2>
+            <input id="name" type="text"  placeholder="Nome">
+            <input id="email" type="email" placeholder="E-mail">
+            <input id="avatar_url" type="text" placeholder="Avatar">
+            <button id="up" type="submit">Atualizar</button>
+          </form>
+
+          <div id="deleteProfile">
+            <h2>Deseja mesmo deletar sua conta?</h2>
+            <button class="cancel">Não desejo deletar minha conta</button>
+            <button class="confirm">Quero deletar minha conta</button>
+          </div>
+          
+          <div class="footer">
+          </div>
+        </div>
+    </div> -->
+    <script type="module" src="./src/js/home.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  </body>
 </html>
