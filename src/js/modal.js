@@ -15,6 +15,7 @@ const modalLogin = () => {
     const spanCLick = document.createElement("span")
     const spanEnd = document.createElement("span")
     const label = document.createElement("label")
+    
 
     label.classList.add("red")
     modal.classList.add("modal")
@@ -24,7 +25,9 @@ const modalLogin = () => {
     buttonLogin.classList.add("btn-login")
     spanCLick.classList.add("purple")
     
+    
 
+    
     h2.innerText = "Login"
     inputMail.type = "email"
     inputMail.placeholder = "E-mail"
@@ -93,6 +96,7 @@ const modalRegister = () => {
     const spanCLick = document.createElement("span")
     const spanEnd = document.createElement("span")
     const label = document.createElement("label")
+    const labelSucces  = document.createElement("label")
 
     label.classList.add("red")
     modal.classList.add("modal")
@@ -101,6 +105,7 @@ const modalRegister = () => {
     form.classList.add("modal-body")
     buttonRegister.classList.add("btn-login")
     spanCLick.classList.add("purple")
+    
 
     h2.innerText = "Cadastrar"
     inputName.type = "text"
@@ -127,7 +132,7 @@ const modalRegister = () => {
     
 
     p.append(span,spanCLick,spanEnd)
-    form.append(h2, label,inputMail, inputName, inputPassWord, inputAvatar, buttonRegister, p)
+    form.append(h2, label,labelSucces,inputMail, inputName, inputPassWord, inputAvatar, buttonRegister, p)
     divContainer.append(buttonClose, form)
     modal.appendChild(divContainer)
 
@@ -146,11 +151,15 @@ const modalRegister = () => {
         if(data.response == 'ERROR'){
             label.innerText = data.message
         }else{
-        const body = document.querySelector("body")
-        const modalLog = modalLogin()
-        body.appendChild(modalLog)
-        modalLog.showModal()
-        modal.close()
+        labelSucces.classList.add("success")
+        labelSucces.innerText = "Conta criada com sucesso"
+        setTimeout(()=> {
+            const body = document.querySelector("body")
+            const modalLog = modalLogin()
+            body.appendChild(modalLog)
+            modalLog.showModal()
+            modal.close()
+        },3000)
         }
     })
     buttonClose.addEventListener("click", () => {

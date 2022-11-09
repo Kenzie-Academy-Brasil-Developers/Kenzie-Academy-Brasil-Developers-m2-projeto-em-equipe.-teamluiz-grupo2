@@ -28,7 +28,7 @@ dialog{
 }
 .modal-container{
     width: 520px;
-    height: 380px;
+    height: 400px;
     border-radius: var(--radius1);
     display: flex;
     flex-direction: column;
@@ -56,6 +56,7 @@ dialog{
     justify-content: center;
     align-items:center;
     gap: 12px;
+    height: 85%;
 }
 .modal-body h2 {
     margin-top: 30px;
@@ -95,6 +96,35 @@ dialog{
 .red{
     
     color: red;
+}
+.success{
+    height: 24px;
+    color: green;
+    width: 45%;
+    padding: 20px;
+}
+
+@media(max-width:730px){
+    .modal{
+        width: 80%;
+        min-width: 80%;
+    }
+    .modal-container{
+        width: 100%;
+        padding: 24px;
+        height: 100%;
+    }
+    .modal-body input{
+        width: 80%;
+    }
+    .btn-login{
+        width: 80%;
+    }
+}
+@media(max-width:400px){
+    .modal-body input{
+        width: 100%;
+    }
 }
 
 /* Matheus modal */
