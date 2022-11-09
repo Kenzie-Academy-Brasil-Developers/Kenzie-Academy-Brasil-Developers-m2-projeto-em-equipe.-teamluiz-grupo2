@@ -2,6 +2,7 @@ import { getAllPets } from "./request.js"
 import { modalLogin,modalRegister } from "./modal.js"
 import { darkMode } from "./dark-mode.js";
 darkMode()
+AOS.init()
 
 function menuDropdown () {
     const header = document.querySelector('.header')
@@ -19,6 +20,7 @@ function menuDropdown () {
         header.appendChild(imgExit)
 
         navButtons.style.display = 'flex'
+        navButtons.style.padding = '12px 0 50px 0'
 
         
         imgExit.addEventListener('click', () => {

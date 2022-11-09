@@ -17,19 +17,18 @@
   cursor: pointer;
 }
 
-.header div {
+.header .nav-buttons {
   background-color: var(--white);
   display: none;
   justify-content: center;
   gap: 30px;
   width: 100%;
-  padding: 12px 0 50px 0;
   position: absolute;
   top: 60px;
   left: 0;
 }
 
-.header div button {
+.header .nav-buttons button {
   background-color: var(--white);
   font-weight: var(--weight6);
   font-size: var(--size4);
@@ -39,17 +38,17 @@
   padding: 10px 40px;
 }
 
-.header div button:hover {
+.header .nav-buttons button:hover {
   background-color: #b58cf238;
 }
 
-.header div .emphasis-button {
+.header .nav-buttons .emphasis-button {
   background-color: var(--brand1);
   color: var(--white);
   border: none;
 }
 
-.header div .emphasis-button:hover {
+.header .nav-buttons .emphasis-button:hover {
   background-color: var(--brand2);
 }
 
@@ -64,14 +63,14 @@
     display: none;
   }
   
-  .header div {
+  .header .nav-buttons {
     display: flex;
     gap: 12px;
     position: static;
     width: unset;
   }
 
-  .header div button{
+  .header .nav-buttons button{
     padding: 5px 20px;
   }
 }

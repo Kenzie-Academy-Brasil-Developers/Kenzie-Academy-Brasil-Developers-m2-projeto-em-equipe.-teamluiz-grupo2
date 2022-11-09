@@ -134,6 +134,10 @@ section {
   margin-top: 16px;
 }
 
+.header .menus {
+  padding-bottom: 0;
+}
+
 .header .container {
   display: flex;
   align-items: center;
