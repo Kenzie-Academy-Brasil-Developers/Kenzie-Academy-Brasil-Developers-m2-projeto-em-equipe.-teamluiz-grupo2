@@ -297,6 +297,7 @@ function modalUpdateUser() {
         })
         console.log(body)
         await updateUser(user.token, body)
+        location.reload()
     })
 
     //Hierarquia
