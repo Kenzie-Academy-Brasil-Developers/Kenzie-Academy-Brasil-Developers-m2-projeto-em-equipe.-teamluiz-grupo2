@@ -1,40 +1,40 @@
-import { getAllPets } from "./request.js"
-import { modalLogin,modalRegister } from "./modal.js"
+import { getAllPets } from "./request.js";
+import { modalLogin, modalRegister } from "./modal.js";
 import { darkMode } from "./dark-mode.js";
-darkMode()
-AOS.init()
+darkMode();
+AOS.init();
 
-function menuDropdown () {
-    const header = document.querySelector('.header')
-    const navButtons = document.querySelector('.nav-buttons')
-    const imgMenuDropdown = document.querySelector('.menu-dropdown')
+function menuDropdown() {
+  const header = document.querySelector(".header");
+  const navButtons = document.querySelector(".nav-buttons");
+  const imgMenuDropdown = document.querySelector(".menu-dropdown");
 
-    imgMenuDropdown.addEventListener('click', () => {
-        imgMenuDropdown.remove()
+  imgMenuDropdown.addEventListener("click", () => {
+    imgMenuDropdown.remove();
 
-        const imgExit = document.createElement('img')
-        imgExit.src = "./src/img/cancel.png"
-        imgExit.alt = "Sair do menu"
-        imgExit.className = 'exit'
+    const imgExit = document.createElement("img");
+    imgExit.src = "./src/img/cancel.png";
+    imgExit.alt = "Sair do menu";
+    imgExit.className = "exit";
 
-        header.appendChild(imgExit)
+    header.appendChild(imgExit);
 
-        navButtons.style.display = 'flex'
-        navButtons.style.padding = '12px 0 50px 0'
+    navButtons.style.display = "flex";
+    navButtons.style.padding = "12px 0 50px 0";
 
-        
-        imgExit.addEventListener('click', () => {
-            imgExit.remove()
-            header.appendChild(imgMenuDropdown)
-            navButtons.style.display = 'none'
-        })
-        
-    })
+    imgExit.addEventListener("click", () => {
+      imgExit.remove();
+      header.appendChild(imgMenuDropdown);
+      navButtons.style.display = "none";
+    });
+  });
 }
-menuDropdown ()
+menuDropdown();
 
-const ulPetsList = document.querySelector('.pets-list')
-const allPets = (await getAllPets()).filter((pet) => pet.available_for_adoption)
+const ulPetsList = document.querySelector(".pets-list");
+const allPets = (await getAllPets()).filter(
+  (pet) => pet.available_for_adoption
+);
 
 const openLogin = () => {
   const login = document.querySelector("#loginButton");
@@ -58,15 +58,15 @@ const openRegister = () => {
 
 if (localStorage.getItem("user")) {
   const divNavButtons = document.querySelector(".nav-buttons");
-  divNavButtons.innerHTML = "";
 
-  const buttonProfile = document.createElement("button");
+  const buttonProfile = document.querySelector("#registerButton");
+
   buttonProfile.innerText = "Perfil";
   buttonProfile.addEventListener("click", () => {
     location.assign("./src/page/user.html");
   });
+  const buttonLogout = document.querySelector("#loginButton");
 
-  const buttonLogout = document.createElement("button");
   buttonLogout.className = "emphasis-button";
   buttonLogout.innerText = "Logout";
   buttonLogout.addEventListener("click", () => {
@@ -74,7 +74,8 @@ if (localStorage.getItem("user")) {
     location.reload();
   });
 
-  divNavButtons.append(buttonProfile, buttonLogout);
+  divNavButtons.insertAdjacentElement("afterbegin", buttonLogout);
+  divNavButtons.insertAdjacentElement("afterbegin", buttonProfile);
 } else {
   openLogin();
   openRegister();
@@ -142,4 +143,3 @@ async function renderPetList(petsList) {
   });
 }
 renderPetList(allPets);
-

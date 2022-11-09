@@ -13,12 +13,12 @@
   color: var(--brand1);
 }
 
-.header img{
+.header img {
   cursor: pointer;
 }
 
 .header .nav-buttons {
-  background-color: var(--white);
+  background-color: var(--grey1);
   display: none;
   justify-content: center;
   gap: 30px;
@@ -52,25 +52,24 @@
   background-color: var(--brand2);
 }
 
-
-
 @media (min-width: 603px) {
-  .header{
+  .header {
     padding: 15px 60px;
   }
 
-  .header img{
+  .header img {
     display: none;
   }
-  
+
   .header .nav-buttons {
     display: flex;
     gap: 12px;
     position: static;
     width: unset;
+    background-color: var(--grey1);
   }
 
-  .header .nav-buttons button{
+  .header .nav-buttons button {
     padding: 5px 20px;
   }
 }
