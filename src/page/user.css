@@ -66,7 +66,7 @@ section {
 }
 #delete-account {
   color: var(--alert);
-  background-color: var(--white);
+  background-color: var(--grey1);
   font-size: var(--size5);
   font-weight: var(--weight6);
   padding: 4px 16px 4px 16px;
