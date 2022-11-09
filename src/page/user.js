@@ -5,6 +5,9 @@ darkMode();
 AOS.init();
 const user = await getUserData();
 
+if (!localStorage.getItem("user")) {
+  window.location.replace("../../index.html");
+}
 const userImg = document.querySelector(".user-img");
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
