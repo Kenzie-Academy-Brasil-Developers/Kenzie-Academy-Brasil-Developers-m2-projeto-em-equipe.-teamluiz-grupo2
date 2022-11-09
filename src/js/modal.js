@@ -248,7 +248,6 @@ function modalUpdateUser() {
     let updateProfileContainer = document.createElement('form')
     let title = document.createElement('h2')
     let inputUsername = document.createElement('input')
-    let inputEmail = document.createElement('input')
     let inputAvatar = document.createElement('input')
     let btnUpdate = document.createElement('button')
 
@@ -259,11 +258,6 @@ function modalUpdateUser() {
     inputUsername.type = "text"
     inputUsername.placeholder = "Nome"
     inputUsername.required = ""
-
-    inputEmail.id = "email"
-    inputEmail.type = "email"
-    inputEmail.placeholder = "E-mail"
-    inputEmail.required = ""
 
     inputAvatar.id = "avatar_url"
     inputAvatar.type = "text"
@@ -308,15 +302,13 @@ function modalUpdateUser() {
     })
 
     //Hierarquia
-    updateProfileContainer.append(title, inputUsername, inputEmail, inputAvatar, btnUpdate)
+    updateProfileContainer.append(title, inputUsername, inputAvatar, btnUpdate)
     close.append(closeIcon)
     header.append(close)
     modal.append(header, updateProfileContainer, footer)
     background.append(modal)
 
     body.append(background)
-
-    // console.log(updateProfileContainer)
 }
 
 function modalBase(titulo='',main='',footer=''){
