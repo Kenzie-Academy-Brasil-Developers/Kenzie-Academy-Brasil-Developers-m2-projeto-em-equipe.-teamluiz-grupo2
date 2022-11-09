@@ -114,12 +114,12 @@ footer {
   --brand1: #4e2096;
   --brand2: #6127bd;
   --brand3: #b48cf2;
-  --grey1:  #1b1c1e;
+  --grey3:  #1b1c1e;
   --grey2:  #90a4ae;
-  --grey3:  #f1eef7;
+  --grey1:  #f1eef7;
   --white:  #ffffff;
-  --green:  #33cc66;
-  --green2: #3fda73;
+  --green2:  #33cc66;
+  --green: #3fda73;
   --alert:  #ea534a;
 
   --size1: 1.75rem;  /* 28px */
@@ -140,6 +140,23 @@ footer {
   --radius3: 100%;
 }
 
+:root .dark-mode {
+  --brand3: #4e2096;
+  --brand2: #6127bd;
+  --brand1: #b48cf2;
+  --grey1:  #1b1c1e;
+  --grey2:  #90a4ae;
+  --grey3:  #f1eef7;
+  --white:  #ffffff;
+  --green:  #33cc66;
+  --green2: #3fda73;
+  --alert:  #ea534a;
+}
+
+body{
+  background-color: var(--grey1);
+}
+
 .container {
   width: 80%;
   max-width: 100%;
@@ -154,4 +171,15 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+
+span.material-symbols-outlined.mode{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 50px;
+  width: fit-content;
+  color:var(--grey3)
 }

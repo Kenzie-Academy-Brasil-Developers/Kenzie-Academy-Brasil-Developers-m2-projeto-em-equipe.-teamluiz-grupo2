@@ -1,5 +1,7 @@
 import { getAllPets } from "./request.js";
 import { modalLogin, modalRegister } from "./modal.js";
+import { darkMode } from "./dark-mode.js";
+darkMode()
 AOS.init();
 const ulPetsList = document.querySelector(".pets-list");
 const allPets = (await getAllPets()).filter(
@@ -33,7 +35,7 @@ if (localStorage.getItem("user")) {
   const buttonProfile = document.createElement("button");
   buttonProfile.innerText = "Perfil";
   buttonProfile.addEventListener("click", () => {
-    location.assign("/src/page/user.html");
+    location.assign("./src/page/user.html");
   });
 
   const buttonLogout = document.createElement("button");
@@ -112,3 +114,4 @@ async function renderPetList(petsList) {
   });
 }
 renderPetList(allPets);
+

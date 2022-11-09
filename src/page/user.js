@@ -1,5 +1,7 @@
+import { darkMode } from "../js/dark-mode.js";
 import { modalPets, modalDeleteUser, modalUpdateUser } from "../js/modal.js";
 import { getAllPets, getUserData } from "../js/request.js";
+darkMode()
 AOS.init();
 const user = await getUserData();
 
@@ -154,7 +156,7 @@ async function openEditPet() {
   ];
   const buttonAdd = document.querySelectorAll(".update-pet-btm");
   let dataPets = await getAllPets();
-
+  
   buttonAdd.forEach((el) => {
     el.addEventListener("click", (event) => {
       let filtro = dataPets.filter((el) => el.id == event.target.id);
@@ -181,7 +183,6 @@ function updateProfile() {
   btn.addEventListener("click", () => {
     modalUpdateUser();
   });
-  console.log(btn);
 }
 
 deleteProfile();
