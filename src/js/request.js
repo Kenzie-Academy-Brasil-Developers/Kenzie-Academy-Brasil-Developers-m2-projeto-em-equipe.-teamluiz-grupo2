@@ -80,6 +80,7 @@ const deleteUser = async (token) => {
 
     if (request.ok) {
       console.log("Profile deleted!")
+      localStorage.removeItem("user")
       window.location.assign('../../index.html')
     }
   } catch (error) {}
