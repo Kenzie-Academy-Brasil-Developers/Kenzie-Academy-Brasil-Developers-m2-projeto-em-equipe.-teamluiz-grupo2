@@ -1,7 +1,7 @@
 import { darkMode } from "../js/dark-mode.js";
 import { modalPets, modalDeleteUser, modalUpdateUser } from "../js/modal.js";
 import { getAllPets, getUserData } from "../js/request.js";
-darkMode()
+darkMode();
 AOS.init();
 const user = await getUserData();
 
@@ -56,6 +56,12 @@ function createPetsCards(pet) {
   const spanName = document.createElement("span");
   spanName.innerText = pet.name;
   petName.append(spanName);
+
+  const petBread = document.createElement("p");
+  petBread.innerText = `Nome: `;
+  const spanBread = document.createElement("span");
+  spanBread.innerText = pet.bread;
+  petBread.append(spanBread);
   const petSpecies = document.createElement("p");
   petSpecies.innerText = `Espécie: `;
   const spanSpecies = document.createElement("span");
@@ -76,7 +82,7 @@ function createPetsCards(pet) {
   updatePet.id = pet.id;
 
   li.append(petImg, infoContainer);
-  infoContainer.append(petName, petSpecies, petStatus, updatePet);
+  infoContainer.append(petName, petBread, petSpecies, petStatus, updatePet);
 
   return li;
 }
@@ -96,7 +102,7 @@ async function openAddPet() {
     {
       id: "name",
       type: "text",
-      placeHolder: "nome",
+      placeHolder: "Nome",
       extras: ["required"],
     },
     {
@@ -113,7 +119,7 @@ async function openAddPet() {
         { option: "Gato" },
         { option: "Aves" },
         { option: "Repteis" },
-        { option: "outros" },
+        { option: "Outros" },
       ],
       extras: ["required"],
     },
@@ -134,7 +140,7 @@ async function openEditPet() {
     {
       id: "name",
       type: "text",
-      placeHolder: "nome",
+      placeHolder: "Nome",
       extras: ["required"],
     },
     {
@@ -156,7 +162,7 @@ async function openEditPet() {
   ];
   const buttonAdd = document.querySelectorAll(".update-pet-btm");
   let dataPets = await getAllPets();
-  
+
   buttonAdd.forEach((el) => {
     el.addEventListener("click", (event) => {
       let filtro = dataPets.filter((el) => el.id == event.target.id);

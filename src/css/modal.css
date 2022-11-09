@@ -167,6 +167,7 @@ dialog {
   width: 20px;
   border-radius: var(--radius3);
   border: 1px solid;
+  cursor: pointer;
 }
 
 #modal .main {
@@ -217,8 +218,8 @@ select option {
 }
 
 #modal button[type="submit"]:disabled {
-  background-color: var(--grey1);
-  color: var(--white);
+  background-color: var(--brand3);
+  color: var(--grey1);
   border-color: var(--grey-1);
 }
 
