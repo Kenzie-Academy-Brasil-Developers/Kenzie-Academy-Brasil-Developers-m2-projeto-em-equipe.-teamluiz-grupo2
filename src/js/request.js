@@ -69,7 +69,7 @@ async function getUserData() {
   }
 }
 
-const deleteUser = async (token) => {
+async function deleteProfile(token) {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "DELETE",
@@ -79,14 +79,15 @@ const deleteUser = async (token) => {
     });
 
     if (request.ok) {
-      console.log("Profile deleted!")
       localStorage.removeItem("user")
       window.location.assign('../../index.html')
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
 
-const updateUser = async (token, body) => {
+async function updateProfile(token, body) {
   try {
     const request = await fetch(`${baseUrl}/users/profile`, {
       method: "PATCH",
@@ -99,11 +100,10 @@ const updateUser = async (token, body) => {
 
     if (request.ok) {
       let response = await request.json()
-      console.log("Updated profile! Please, login again!");
       return response
     }
   } catch (error) {
-    
+    console.log(error)
   }
 }
 
@@ -148,4 +148,4 @@ async function editPetProfile(data,id){
 }
 
 
-export { getAllPets, login, register, getUserData, deleteUser, updateUser,registerPet,editPetProfile};
+export { getAllPets, login, register, getUserData, deleteProfile, updateProfile,registerPet,editPetProfile};

@@ -1,4 +1,4 @@
-import { deleteUser, login, register, updateUser, registerPet,editPetProfile } from "./request.js";
+import { deleteProfile, login, register, updateProfile, registerPet,editPetProfile } from "./request.js";
 
 
 const modalLogin = () => {
@@ -15,6 +15,7 @@ const modalLogin = () => {
     const spanCLick = document.createElement("span")
     const spanEnd = document.createElement("span")
     const label = document.createElement("label")
+    
 
     label.classList.add("red")
     modal.classList.add("modal")
@@ -24,7 +25,9 @@ const modalLogin = () => {
     buttonLogin.classList.add("btn-login")
     spanCLick.classList.add("purple")
     
+    
 
+    
     h2.innerText = "Login"
     inputMail.type = "email"
     inputMail.placeholder = "E-mail"
@@ -93,6 +96,7 @@ const modalRegister = () => {
     const spanCLick = document.createElement("span")
     const spanEnd = document.createElement("span")
     const label = document.createElement("label")
+    const labelSucces  = document.createElement("label")
 
     label.classList.add("red")
     modal.classList.add("modal")
@@ -101,6 +105,7 @@ const modalRegister = () => {
     form.classList.add("modal-body")
     buttonRegister.classList.add("btn-login")
     spanCLick.classList.add("purple")
+    
 
     h2.innerText = "Cadastrar"
     inputName.type = "text"
@@ -127,7 +132,7 @@ const modalRegister = () => {
     
 
     p.append(span,spanCLick,spanEnd)
-    form.append(h2, label,inputMail, inputName, inputPassWord, inputAvatar, buttonRegister, p)
+    form.append(h2, label,labelSucces,inputMail, inputName, inputPassWord, inputAvatar, buttonRegister, p)
     divContainer.append(buttonClose, form)
     modal.appendChild(divContainer)
 
@@ -146,11 +151,15 @@ const modalRegister = () => {
         if(data.response == 'ERROR'){
             label.innerText = data.message
         }else{
-        const body = document.querySelector("body")
-        const modalLog = modalLogin()
-        body.appendChild(modalLog)
-        modalLog.showModal()
-        modal.close()
+        labelSucces.classList.add("success")
+        labelSucces.innerText = "Conta criada com sucesso"
+        setTimeout(()=> {
+            const body = document.querySelector("body")
+            const modalLog = modalLogin()
+            body.appendChild(modalLog)
+            modalLog.showModal()
+            modal.close()
+        },3000)
         }
     })
     buttonClose.addEventListener("click", () => {
@@ -174,7 +183,6 @@ const modalRegister = () => {
 function modalDeleteUser() {
     let body = document.querySelector('body')
     //Criando elementos
-    //Corpo do modal
     let background = document.createElement('div')
     let modal = document.createElement('div')
     let header = document.createElement('div')
@@ -182,13 +190,13 @@ function modalDeleteUser() {
     let closeIcon = document.createElement('img')
     let footer = document.createElement('div')
 
-    let deleteProfile = document.createElement('div')
+    let deleteProfileContainer = document.createElement('div')
     let title = document.createElement('h2')
     let btnCancel = document.createElement('button')
     let btnConfirm = document.createElement('button')
 
     //Atribuindo classes e IDs
-    deleteProfile.id = "deleteProfile"
+    deleteProfileContainer.id = "deleteProfile"
     btnCancel.classList = "cancel"
     btnConfirm.classList = "confirm"
     background.classList = "background modal-bg"
@@ -214,14 +222,14 @@ function modalDeleteUser() {
     })
     btnConfirm.addEventListener('click', async (event) => {
         let user = JSON.parse(localStorage.getItem('user'))
-        await deleteUser(user.token)
+        await deleteProfile(user.token)
     })
 
     //Hierarquia
-    deleteProfile.append(title, btnCancel, btnConfirm)
+    deleteProfileContainer.append(title, btnCancel, btnConfirm)
     close.append(closeIcon)
     header.append(close)
-    modal.append(header, deleteProfile, footer)
+    modal.append(header, deleteProfileContainer, footer)
     background.append(modal)
 
     body.append(background)
@@ -230,7 +238,6 @@ function modalDeleteUser() {
 function modalUpdateUser() {
     let body = document.querySelector('body')
     //Criando elementos
-    //Corpo do modal
     let background = document.createElement('div')
     let modal = document.createElement('div')
     let header = document.createElement('div')
@@ -238,25 +245,19 @@ function modalUpdateUser() {
     let closeIcon = document.createElement('img')
     let footer = document.createElement('div')
 
-    let updateProfile = document.createElement('form')
+    let updateProfileContainer = document.createElement('form')
     let title = document.createElement('h2')
     let inputUsername = document.createElement('input')
-    let inputEmail = document.createElement('input')
     let inputAvatar = document.createElement('input')
     let btnUpdate = document.createElement('button')
 
     //Atribuindo Classes e IDs
-    updateProfile.id = "updateProfile"
+    updateProfileContainer.id = "updateProfile"
 
     inputUsername.id = "name"
     inputUsername.type = "text"
     inputUsername.placeholder = "Nome"
     inputUsername.required = ""
-
-    inputEmail.id = "email"
-    inputEmail.type = "email"
-    inputEmail.placeholder = "E-mail"
-    inputEmail.required = ""
 
     inputAvatar.id = "avatar_url"
     inputAvatar.type = "text"
@@ -285,10 +286,10 @@ function modalUpdateUser() {
             background.remove()
         }
     })
-    updateProfile.addEventListener('submit', async (event) => {
+    updateProfileContainer.addEventListener('submit', async (event) => {
         event.preventDefault()
         let user = JSON.parse(localStorage.getItem('user'))
-        let inputs = [...updateProfile.elements]
+        let inputs = [...updateProfileContainer.elements]
         let body = {}
         inputs.forEach(input => {
             if (input.tagName == 'INPUT' && input.value != "") {
@@ -296,20 +297,18 @@ function modalUpdateUser() {
             }
         })
         console.log(body)
-        await updateUser(user.token, body)
+        await updateProfile(user.token, body)
         location.reload()
     })
 
     //Hierarquia
-    updateProfile.append(title, inputUsername, inputEmail, inputAvatar, btnUpdate)
+    updateProfileContainer.append(title, inputUsername, inputAvatar, btnUpdate)
     close.append(closeIcon)
     header.append(close)
-    modal.append(header, updateProfile, footer)
+    modal.append(header, updateProfileContainer, footer)
     background.append(modal)
 
     body.append(background)
-
-    // console.log(updateProfile)
 }
 
 function modalBase(titulo='',main='',footer=''){
