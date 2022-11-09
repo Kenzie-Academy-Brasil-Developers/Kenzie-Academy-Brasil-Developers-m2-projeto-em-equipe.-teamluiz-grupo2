@@ -181,7 +181,6 @@ function updateProfile() {
   btn.addEventListener("click", () => {
     modalUpdateUser();
   });
-  console.log(btn);
 }
 
 deleteProfile();
