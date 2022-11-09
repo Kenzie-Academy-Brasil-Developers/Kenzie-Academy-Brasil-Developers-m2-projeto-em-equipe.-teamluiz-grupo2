@@ -47,7 +47,7 @@ section {
   font-weight: var(--weight6);
 }
 .p-container > p > span {
-  color: var(--grey3);
+  color: var(--grey1);
 }
 .btm-container {
   width: 100%;
